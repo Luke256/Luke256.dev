@@ -1,0 +1,14 @@
+
+.content {
+    margin: auto;
+    max-width: 800px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.heading {
+    text-align: center;
+    margin: 0;
+}

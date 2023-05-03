@@ -1,0 +1,33 @@
+.tablebody {
+    text-align: center;
+    border-collapse: collapse;
+
+    border-left: 0;
+    border-right: 0;
+
+    width: 90%;
+    margin: 16px;
+}
+
+.tableRow {
+    padding: 10px;
+    border-bottom: 0;
+}
+
+.tableDate {
+    padding: 10px 16px;
+    border: 2px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    width: 25%;
+    color: #ababab;
+    font-size: 0.8em;
+}
+
+.tableDetail {
+    padding: 10px 16px;
+    border: 2px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    color: #274673;
+}

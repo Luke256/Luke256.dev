@@ -1,0 +1,39 @@
+.ButtonBody {
+    position: relative;
+    display: inline-block;
+    padding: 0 32px;
+    color: #444;
+    text-decoration: none;
+    outline: none;
+}
+
+.ButtonBody::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 15%;
+    width: 85%;
+    height: 1px;
+    background: #444;
+    transition: all .3s;
+}
+
+.ButtonBody::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 15px;
+    height: 1px;
+    background: #444;
+    transform: rotate(35deg);
+    transition: all .3s;
+}
+
+.ButtonBody:hover::before {
+    left: 25%;
+}
+
+.ButtonBody:hover::after {
+    right: -10%;
+}

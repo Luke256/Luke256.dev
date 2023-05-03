@@ -1,0 +1,28 @@
+.header {
+    color: #444;
+    margin-bottom: 0;
+    border-bottom: #aaa 2px solid;
+    position: relative;
+}
+.header:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100px;
+    height: inherit;
+    border-bottom: #4e8de6 2px solid;
+}
+
+
+.detail {
+    margin-top: 16px;
+    margin-left: 32px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.content {
+    max-width: 800px;
+    margin: auto;
+}

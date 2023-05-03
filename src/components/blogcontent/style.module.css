@@ -1,0 +1,22 @@
+.Content {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    color: #000;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.Title {
+    margin-bottom: 0;
+}
+
+.Date {
+    font-size: .8em;
+}
+
+.h3 {
+    border-left: 8px solid #aaa;
+    padding-left: 8px;
+}
