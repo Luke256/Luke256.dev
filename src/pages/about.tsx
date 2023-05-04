@@ -1,9 +1,16 @@
 import Content from "@/components/content";
 import Layer from "@/components/layer";
+import { NextSeo } from "next-seo";
 
 const About = () => {
     return (
         <Layer pageTitle="About">
+            <NextSeo 
+                title="About - Luke"
+                openGraph={{
+                    url: "https://luke256.dev/about"
+                }}
+            />
             <Content title="Prolile">
                 LukeというHNで活動している高校三年生です。プログラミングやWeb制作、電子工作を趣味にしています。<br/>
                 プログラミングは読む程度なら大体の言語(BrainF**k含め)はいけると思います。競技プログラミングが好きです。<br/>
