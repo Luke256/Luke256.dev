@@ -24,3 +24,29 @@
 .context {
     padding-left: 1em;
 }
+
+.tocBody {
+    /* width: fit-content; */
+    padding: 10px;
+    border: dashed #aaa;
+    border-radius: 1em;
+}
+
+.tocList {
+    margin: 10px;
+    margin-bottom: 0px;
+    margin-top:0px;
+    padding-left: 10px;
+    list-style-position: inside;
+    list-style-type: disc;
+    color: #4e8de6;
+}
+
+.tocItem {
+    margin: 0px;
+}
+
+.tocLink {
+    text-decoration: none;
+    color: #3B69AD;
+}
