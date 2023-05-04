@@ -2,6 +2,7 @@
 slug: "/post/build-misskey"
 title: "misskeyのインスタンスを立てました！"
 date: "2023-02-11"
+update: "2023-02-27"
 ---
 
 

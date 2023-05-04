@@ -39,14 +39,14 @@ export async function getStaticProps(context: any) {
 }
 
 type Props = {
-    frontMatter: {title: string},
+    frontMatter: {title: string, date: string, update: string},
     content: string
 }
 
 const Post: React.FC<Props> = ({frontMatter, content}) => {
     return (
         <Layer pageTitle={frontMatter.title}>
-            <BlogContent title={frontMatter.title} content={content}></BlogContent>
+            <BlogContent title={frontMatter.title} content={content} date={frontMatter.date} update={frontMatter.update}></BlogContent>
         </Layer>
     )
 }
