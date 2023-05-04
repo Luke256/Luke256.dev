@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         defaultTitle="Luke's Home"
                         description='Student / Programmer'
                         openGraph={{
-                            type: "wesite",
+                            type: "website",
                             title: "Luke's Home",
                             description: "Student / Programmer",
                             siteName: "Luke's HomePage",
@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         }}
                         twitter={{
                             handle: '@luke02561',
+                            site: '@luke02561',
                             cardType: "summary"
                         }}
                     />
