@@ -4,9 +4,6 @@ import path from "path";
 import fs from 'fs'
 import matter from "gray-matter";
 import React from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import rehypeRaw from "rehype-raw";
-import remarkGfm from "remark-gfm";
 import BlogContent from "@/components/blogcontent";
 
 export async function getStaticPaths() {

@@ -28,4 +28,6 @@ int main() {
 
 ```
 
-<TwitterTweetEmbed tweetId="1562110318196981762"></TwitterTweetEmbed>,
+```twitter
+1562110318196981762
+```

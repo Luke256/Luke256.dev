@@ -8,7 +8,9 @@ date: "2022-12-25"
 
 応用情報技術者試験に合格しました！
 
-<TwitterTweetEmbed tweetId="1605761823776464896"></TwitterTweetEmbed>,
+```twitter
+1605761823776464896
+```
 
 とあるWindows実行ファイルさんがAP合格をブログにしていたので、僕も書いてみる
 
