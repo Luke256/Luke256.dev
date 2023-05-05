@@ -3,6 +3,10 @@ import Layer from "@/components/layer";
 import { NextSeo } from "next-seo";
 
 const About = () => {
+    let birthday: Date = new Date('2006-02-08');
+    let today: Date = new Date();
+    let age: number = today.getTime() - birthday.getTime();
+    
     return (
         <Layer pageTitle="About">
             <NextSeo 
@@ -18,10 +22,11 @@ const About = () => {
                 稀によくボルダリングをやってたりしてます<br/>
                 <br/>
                 Name: Luke (Luke256)<br/>
-                Birthday: Feb 8 2006
+                Birthday: Feb 8 2006<br/>
+                Age: {Math.floor(age/(365*24*60*60*1000))}
             </Content>
             <Content title="About this Page">
-                <p>このページはNode.jsで作成しています。ブログページも開設予定。</p>
+                <p>このページはNode.jsで作成しています。プロダクトページも開設予定。</p>
             </Content>
         </Layer>
     )

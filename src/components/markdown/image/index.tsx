@@ -11,7 +11,7 @@ type Props = {
 
 const MDImage: React.FC<Props> = ({alt, src, ...props}) => (
     <div className={styles.mdimage}><Link href={src}>
-        <Image src={src} alt={alt||src} fill style={{objectFit: 'contain'}} {...props}/>
+        <Image src={src} alt={alt||src} fill style={{objectFit: 'contain'}} {...props}></Image>
     </Link></div>
 )
 

@@ -50,3 +50,13 @@
     text-decoration: none;
     color: #3B69AD;
 }
+
+.blockquote {
+    border-left: 10px solid #aaa;
+    background-color: #ebebeb;
+    padding: 0.5em;
+}
+
+.blockquote > p {
+    margin: 0px;
+}

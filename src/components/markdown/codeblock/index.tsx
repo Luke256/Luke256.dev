@@ -3,10 +3,11 @@ import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { CodeComponent } from "react-markdown/lib/ast-to-react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import Skeleton from "react-loading-skeleton";
+import styles from "./style.module.css"
 
 const customCode: CodeComponent = ({ inline, className, children }) => {
     if (inline) {
-        return <code className={className}>{children}</code>;
+        return <code className={`${className} ${styles.inline}`}>{children}</code>;
     }
 
     const match = /language-(\w+)/.exec(className || '');
