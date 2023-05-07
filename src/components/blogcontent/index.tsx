@@ -38,7 +38,8 @@ const BlogContent: React.FC<Props> = ({ title, content, date, update }) => {
                 remarkPlugins={[remarkGfm]}
                 components={{
                     code: customCode,
-                    h1: ({ children }) => <div><h2>{children}</h2><hr /></div>,
+                    h1: ({ children }) => <div><h2 className={styles.h2}>{children}<hr /></h2></div>,
+                    h2: ({ children }) => <div><h3 className={styles.h3}>{children}</h3></div>,
                     h3: ({ children }) => <div><h3 className={styles.h3}>{children}</h3></div>,
                     img: ({ alt, src, ...props }) => <MDImage src={src} alt={alt} {...props}></MDImage>,
                     p: ({ children }) => <p className={styles.context}>{children}</p>,
