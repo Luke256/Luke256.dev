@@ -29,12 +29,12 @@ const Layer: React.FC<Props> = ({pageTitle, children}) => {
                             </a>
                         </li>
                         <li className={styles.SNSIcon}>
-                            <a aria-label="GitHub" href="https://twitter.com/luke02561" target="_blank" rel="noreferrer">
+                            <a aria-label="GitHub" href="https://github.com/Luke256" target="_blank" rel="noreferrer">
                                 <GithubIcon className={styles.SNSIcon}></GithubIcon>
                             </a>
                         </li>
                         <li className={styles.SNSIcon}>
-                            <a aria-label="Zenn" href="https://twitter.com/luke02561" target="_blank" rel="noreferrer">
+                            <a aria-label="Zenn" href="https://zenn.dev/luke256" target="_blank" rel="noreferrer">
                                 <ZennIcon className={styles.SNSIcon}></ZennIcon>
                             </a>
                         </li>
