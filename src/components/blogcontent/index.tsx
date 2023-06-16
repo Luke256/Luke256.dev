@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm"
 import styles from './style.module.css'
 import customCode from "../markdown/codeblock"
 import MDImage from "../markdown/image"
+import Head2Id from "../markdown/head2id"
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import rehypeSlug from "rehype-slug"
@@ -38,9 +39,9 @@ const BlogContent: React.FC<Props> = ({ title, content, date, update }) => {
                 remarkPlugins={[remarkGfm]}
                 components={{
                     code: customCode,
-                    h1: ({ children }) => <div><h2 className={styles.h2}>{children}<hr /></h2></div>,
-                    h2: ({ children }) => <div><h3 className={styles.h3}>{children}</h3></div>,
-                    h3: ({ children }) => <div><h3 className={styles.h3}>{children}</h3></div>,
+                    h1: ({ children }) => <div><h2 className={styles.h2} id={String(Head2Id({children}))}>{children}<hr /></h2></div>,
+                    h2: ({ children }) => <div><h3 className={styles.h3} id={String(Head2Id({children}))}>{children}</h3></div>,
+                    h3: ({ children }) => <div><h3 className={styles.h3} id={String(Head2Id({children}))}>{children}</h3></div>,
                     img: ({ alt, src, ...props }) => <MDImage src={src} alt={alt} {...props}></MDImage>,
                     p: ({ children }) => <p className={styles.context}>{children}</p>,
                     blockquote: ({children}) => <blockquote className={styles.blockquote}>{children}</blockquote>
