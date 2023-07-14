@@ -8,8 +8,8 @@ type Props = {
 const slugger = new GithubSlugger()
 
 
-const Head2Id: React.FC<Props> = ({children}) => {
-    const str: string = children.toString()
+const Head2Id = (value: string) => {
+    const str: string = value
     const id: string = slugger.slug(str)
     return id.slice(0, -2);
 }
