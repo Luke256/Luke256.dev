@@ -1,5 +1,5 @@
 ---
-slug: "/post/pck2023"
+slug: "/post/pck2023yo"
 title: "パソコン甲子園2023参加記 予選篇"
 date: "2023-09-10"
 update: "2023-09-10"
