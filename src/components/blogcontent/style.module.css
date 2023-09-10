@@ -54,13 +54,10 @@
     margin-top: 1em;
     padding: 10px;
     border: dashed #4e8de6 .1px;
-    border-radius: 1em;
 
-
-    border-radius: 1em;
     background: #f5f5f5;
-    box-shadow: 5px 5px 10px #a2a2a2,
-        -5px -5px 10px #ffffff;
+    box-shadow: 2px 2px 10px #a2a2a2,
+        -2px -2px 10px #ffffff;
 }
 
 .tocList {
