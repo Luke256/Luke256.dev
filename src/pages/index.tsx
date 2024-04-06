@@ -26,8 +26,7 @@ const Index = (props: any) => {
         <Layer pageTitle="ホーム">
             <MarkedContent title="About Me" background="#D3DAE5">
                 <p>
-                    プログラミング好きの高校三年生です。中学一年生からC++に触れて、Pythonなども使いながら競技プログラミング/アプリ開発などをやってます。<br />
-                    たまにボルダリングをやってたりします
+                    プログラミング好きの大学一年生。中学一年生からC++に触れて、Pythonなども使いながら競技プログラミング/アプリ開発などをやってます。<br />
                 </p>
                 <LinkButton href='/about'>About</LinkButton>
             </MarkedContent>
@@ -42,7 +41,7 @@ const Index = (props: any) => {
                 </Content>
             </MarkedContent>
             <MarkedContent title="Achievements" background="#D3DAE5">
-                <AchievementsView></AchievementsView>
+                <AchievementsView limit={5}></AchievementsView>
                 <LinkButton href='/achieve'>Achievements</LinkButton>
             </MarkedContent>
             <MarkedContent title="Blogs" background="">
@@ -57,6 +56,7 @@ const Index = (props: any) => {
                 <JumpLink href="https://zenn.dev/luke256">Zenn</JumpLink>
                 <JumpLink href="https://www.resume.id/luke256">resume</JumpLink>
                 <JumpLink href="https://misskey.io/@luke0256">misskey</JumpLink>
+                <JumpLink href="https://bsky.app/profile/luke256.dev">BlueSky</JumpLink>
             </MarkedContent>
         </Layer>
     )
