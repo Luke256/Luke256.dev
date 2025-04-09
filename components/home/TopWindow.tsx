@@ -13,7 +13,7 @@ const TopWindow = () => {
           <div className="animate-fade-in-load opacity-0">
             <div className="text-6xl font-black font-mono bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-transparent">
               <h1 className="p-1">
-                Luke256's
+                Luke256&apos;s
               </h1>
               <h1 className="p-1 pl-[1em]">
                 Portfolio
