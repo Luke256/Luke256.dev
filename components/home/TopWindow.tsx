@@ -23,13 +23,13 @@ const TopWindow = () => {
               &#x28;&#x2267;^&middot;ω&middot;^&#x2266;&#x29;meow
             </div>
             <div className="flex justify-evenly">
-              <Link href="https://github.com/Luke256" target="_blank">
-                <FaGithub className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out text-3xl mt-4" />
+              <Link href="https://github.com/Luke256" target="_blank" aria-label="GitHub Account">
+                <FaGithub className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out text-3xl mt-4"/>
               </Link>
-              <Link href="https://twitter.com/Luke02561" target="_blank">
+              <Link href="https://twitter.com/Luke02561" target="_blank" aria-label="X Account">
                 <FaTwitter className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out text-3xl mt-4" />
               </Link>
-              <Link href="https://zenn.dev/luke256" target="_blank">
+              <Link href="https://zenn.dev/luke256" target="_blank" aria-label="Zenn Account">
                 <SiZenn className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out text-3xl mt-4" />
               </Link>
             </div>
