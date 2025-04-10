@@ -26,4 +26,14 @@
             filter: blur(0);
         }
     }
+
+    /* ぐるぐる回るアニメーション */
+    --animate-spin: spin 2s linear infinite;
+    
+@keyframes spin {
+    0% {transform: rotateX(0deg) rotateY(0deg)}
+    33% {transform: rotateX(-20deg) rotateY(120deg)}
+    66% {transform: rotateX(20deg) rotateY(240deg)}
+    100% {transform: rotateX(0deg) rotateY(360deg)}
+  }
 }
