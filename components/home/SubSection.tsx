@@ -7,7 +7,7 @@ type Props = {
 
 const SubSection = ({ icon, title, titleClassName, children }: Props) => {
   return (
-    <div className="flex flex-col pr-4">
+    <div className="flex flex-col pr-4 mt-8">
       <div className="flex">
         {icon}
         <h2 className={"text-3xl font-bold mb-4 " + titleClassName}>{title}</h2>

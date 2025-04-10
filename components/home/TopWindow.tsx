@@ -3,10 +3,13 @@ import HeadBar from "../HeadBar"
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
 import Link from "next/link";
+import TreeSVG from "./TreeSVG";
 
 const TopWindow = () => {
   return (
-    <div className="h-screen bg-linear-to-t from-white/0 from-10% to-white/20 bg-0">
+    <div className="h-screen bg-linear-to-t from-white/0 to-white/20 bg-0">
+      <TreeSVG className="top-(--header-height) left-0 h-[calc(100%-var(--header-height))]" aspectRatio={2} />
+      <TreeSVG className="top-(--header-height) right-0 h-[calc(100%-var(--header-height))] invisible md:visible" aspectRatio={2} invert />
       <HeadBar />
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
         <div className="flex flex-col-reverse md:flex-row items-center place-content-center md:justify-around h-full lg:px-4 md:px-1">

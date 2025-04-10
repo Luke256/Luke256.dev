@@ -2,6 +2,7 @@ import Section from "./Section";
 import SubSection from "./SubSection";
 import Link from "next/link";
 import { FaCubes, FaChessKnight } from "react-icons/fa";
+import TreeSVG from "./TreeSVG";
 
 
 const AboutMe = () => {
@@ -14,7 +15,7 @@ const AboutMe = () => {
       <h2 className="text-3xl font-bold mb-4 mt-8 text-teal-200 text-center">
         所属
       </h2>
-      <div className="text-lg">
+      <div className="text-lg font-mono mt-8">
         <ul className="list-disc list-inside">
           <li>東京科学大学 情報理工学院 情報工学系 2年</li>
           <li><Link href="https://trap.jp" target="_blank" aria-label="trap" className="text-indigo-300">東京科学大学デジタル創作同好会traP</Link></li>
@@ -22,7 +23,7 @@ const AboutMe = () => {
         </ul>
       </div>
 
-      <h2 className="text-3xl font-bold mb-4 mt-8 text-fuchsia-200 text-center">
+      <h2 className="text-3xl font-bold mt-8 text-fuchsia-200 text-center">
         活動
       </h2>
       <div className="md:grid md:grid-cols-2 md:divide-x-2 md:divide-indigo-500 md:gap-4">

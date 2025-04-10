@@ -1,0 +1,81 @@
+type Props = {
+    className: string;
+    aspectRatio?: number;
+    invert?: boolean;
+}
+
+
+const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
+    const Width = 16;
+    const Height = Width * (aspectRatio ? aspectRatio : 1);
+    const Nodes = 48;
+    let Vertex = [[0.5, Height - 1]];
+    let Edges: number[][] = [];
+
+    while (Vertex.length < Nodes)
+    {
+        let r1 = Math.random();
+        let r2 = Math.random();
+        let x = r1 * Math.sqrt(1-r2) * (Width - 3) + 2 * (1 - r2);
+        let y = r2 * (Height - 1);
+        
+        let isValid = true;
+        for (let i = 0; i < Vertex.length; i++)
+        {
+            const dx = Vertex[i][0] - x;
+            const dy = Vertex[i][1] - y;
+            const dist = Math.sqrt(dx ** 2 + dy ** 2);
+            if (dist < 1) 
+            {
+                isValid = false;
+                break;
+            }
+        }
+        if (isValid)
+        {
+            Vertex.push([x, y]);
+        }
+    }
+
+    if (invert)
+    {
+        Vertex = Vertex.map((v) => [Width - v[0], v[1]]);
+    }
+
+    for (let i = 1; i < Nodes; i++)
+    {
+        let bestScore = Infinity;
+        let idx = -1;
+        for (let j = 0; j < Nodes; j++)
+        {
+            if (i === j) continue;
+            if (Vertex[j][1] < Vertex[i][1]) continue;
+
+            const dx = Vertex[j][0] - Vertex[i][0];
+            const dy = Vertex[j][1] - Vertex[i][1];
+            let dist = Math.sqrt(dx ** 2 + dy ** 2);
+
+            if (Vertex[j][0] < Vertex[j][0] * 2) dist *= 1000;
+            
+            if (dist < bestScore)
+            {
+                bestScore = dist;
+                idx = j;
+            }
+        }
+        Edges.push([idx, i]);
+    }
+
+    return (
+        <svg className={"absolute " + className} viewBox={`0 0 ${Width} ${Height}`} preserveAspectRatio="none">
+            {Vertex.map((v, i) => (
+                <circle key={i} cx={v[0]} cy={v[1]} r="0.2" fill="white" className="opacity-20" />
+            ))}
+            {Edges.map((e, i) => (
+                <line key={i} x1={Vertex[e[0]][0]} y1={Vertex[e[0]][1]} x2={Vertex[e[1]][0]} y2={Vertex[e[1]][1]} stroke="white" className="opacity-20" strokeWidth="0.1" strokeLinecap="round" />
+            ))}
+        </svg>
+    );
+}
+
+export default TreeSVG;

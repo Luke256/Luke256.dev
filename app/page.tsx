@@ -1,7 +1,7 @@
 import AboutMe from "@/components/home/AboutMe";
 import Career from "@/components/home/Career";
-import GeometricImage from "@/components/home/GeometricImage";
 import TopWindow from "@/components/home/TopWindow";
+import TreeSVG from "@/components/home/TreeSVG";
 
 export default function Home() {
   return (
@@ -9,7 +9,6 @@ export default function Home() {
       <TopWindow />
       <AboutMe />
       <Career />
-      <GeometricImage />
     </main>
   );
 }
