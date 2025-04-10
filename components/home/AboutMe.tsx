@@ -2,7 +2,6 @@ import Section from "./Section";
 import SubSection from "./SubSection";
 import Link from "next/link";
 import { FaCubes, FaChessKnight } from "react-icons/fa";
-import TreeSVG from "./TreeSVG";
 
 
 const AboutMe = () => {

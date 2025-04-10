@@ -10,14 +10,14 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
     const Height = Width * (aspectRatio ? aspectRatio : 1);
     const Nodes = 48;
     let Vertex = [[0.5, Height - 1]];
-    let Edges: number[][] = [];
+    const Edges: number[][] = [];
 
     while (Vertex.length < Nodes)
     {
-        let r1 = Math.random();
-        let r2 = Math.random();
-        let x = r1 * Math.sqrt(1-r2) * (Width - 3) + 2 * (1 - r2);
-        let y = r2 * (Height - 1);
+        const r1 = Math.random();
+        const r2 = Math.random();
+        const x = r1 * Math.sqrt(1-r2) * (Width - 3) + 2 * (1 - r2);
+        const y = r2 * (Height - 1);
         
         let isValid = true;
         for (let i = 0; i < Vertex.length; i++)
