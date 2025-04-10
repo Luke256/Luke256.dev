@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const TopWindow = () => {
   return (
-    <div className="h-screen bg-linear-to-t from-gray-900 to-gray-700">
+    <div className="h-screen bg-linear-to-t from-white/0 from-10% to-white/20 bg-0">
       <HeadBar />
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
         <div className="flex flex-col-reverse md:flex-row items-center place-content-center md:justify-around h-full lg:px-4 md:px-1">
