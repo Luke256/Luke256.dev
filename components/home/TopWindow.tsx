@@ -9,9 +9,9 @@ const TopWindow = () => {
     <div className="h-screen bg-linear-to-t from-gray-900 to-gray-700">
       <HeadBar />
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
-        <div className="flex flex-col-reverse md:flex-row items-center place-content-center md:justify-around h-full px-4 md:px-1">
+        <div className="flex flex-col-reverse md:flex-row items-center place-content-center md:justify-around h-full lg:px-4 md:px-1">
           <div className="animate-fade-in-load opacity-0">
-            <div className="text-6xl font-black font-mono bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-transparent">
+            <div className="text-4xl md:text-6xl font-black font-mono bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-transparent">
               <h1 className="p-1">
                 Luke256&apos;s
               </h1>
