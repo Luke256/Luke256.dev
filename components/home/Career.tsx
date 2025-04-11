@@ -13,7 +13,7 @@ const Career = () => {
                             <div className="min-w-[2em] max-w-[2em]">
                                 <CareerDot important={career.important} />
                             </div>
-                            <div className="pl-1 font-mono text-base whitespace-nowrap">{career.description}</div>
+                            <div className="pl-1 font-mono font-medium text-base whitespace-nowrap">{career.description}</div>
                         </div>
                     ))}
                 </div>
