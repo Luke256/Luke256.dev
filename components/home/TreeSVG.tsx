@@ -1,15 +1,20 @@
 'use client';
 
+import { useEffect, useState } from "react";
+
 type Props = {
     className: string;
     aspectRatio?: number;
     invert?: boolean;
 }
 
-const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
-    const Width = 16;
-    const Height = Width * (aspectRatio ? aspectRatio : 1);
-    const Nodes = 48;
+type Tree = {
+    Vertex: number[][],
+    Edges: number[][],
+    colors: string[]
+};
+
+const genTree = (Width: number, Height: number, Nodes: number, invert: boolean) => {
     let Vertex = [[0.5, Height - 1]];
     const Edges_: number[][] = [];
 
@@ -110,8 +115,25 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
         else colors.push("yellow");
     }
 
+    return { Vertex, Edges, colors };
+}
+
+const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
+    const Width = 16;
+    const Height = Width * (aspectRatio ? aspectRatio : 1);
+    const Nodes = 48;
+
+    const [{ Vertex, Edges, colors}, setTree] = useState<Tree>({Vertex: [], Edges: [], colors: []});
+    const [fade, setFade] = useState("");
+
+    useEffect(() => {
+        const tree = genTree(Width, Height, Nodes, invert ? invert : false);
+        setTree(tree);
+        setFade("animate-fade-in-load-delay opacity-0 ");
+    }, [Width, Height, Nodes, invert]);
+
     return (
-        <svg className={"absolute " + className} viewBox={`0 0 ${Width} ${Height}`} preserveAspectRatio="none">
+        <svg className={"absolute " + fade + className} viewBox={`0 0 ${Width} ${Height}`} preserveAspectRatio="none">
             {Vertex.map((v, i) => (
                 <circle key={i} cx={v[0]} cy={v[1]} r="0.2" fill={colors[i]} className="opacity-20" />
             ))}
