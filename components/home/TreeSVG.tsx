@@ -1,9 +1,10 @@
+'use client';
+
 type Props = {
     className: string;
     aspectRatio?: number;
     invert?: boolean;
 }
-
 
 const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
     const Width = 16;
