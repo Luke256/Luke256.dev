@@ -8,11 +8,11 @@ import TreeSVG from "./TreeSVG";
 const TopWindow = () => {
   return (
     <div className="h-screen bg-linear-to-t from-white/0 to-white/20 bg-0">
-      <TreeSVG className="top-(--header-height) left-0 h-[calc(100%-var(--header-height))]" aspectRatio={2} />
-      <TreeSVG className="top-(--header-height) right-0 h-[calc(100%-var(--header-height))] invisible md:visible" aspectRatio={2} invert />
+      <TreeSVG className="pointer-events-none bottom-0 left-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto" aspectRatio={2} />
+      <TreeSVG className="pointer-events-none bottom-0 right-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto invisible sm:visible" aspectRatio={2} invert />
       <HeadBar />
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
-        <div className="flex flex-col-reverse md:flex-row items-center place-content-center md:justify-around h-full lg:px-4 md:px-1">
+        <div className="flex flex-col-reverse sm:flex-row items-center place-content-center sm:justify-around h-full lg:px-4 md:px-1">
           <div className="animate-fade-in-load opacity-0">
             <div className="text-4xl md:text-6xl font-black font-mono bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-transparent">
               <h1 className="p-1">
