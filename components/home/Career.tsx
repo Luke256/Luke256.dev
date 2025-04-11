@@ -9,7 +9,7 @@ const Career = () => {
                 <div className="overflow-x-auto">
                     {careerList.map((career, index) => (
                         <div key={index} className="flex items-center">
-                            <div className="text-sm text-gray-500 min-w-[4em] text-right pr-1">{career.date}</div>
+                            <div className="text-sm text-gray-500 min-w-[5em] text-right pr-1">{career.date}</div>
                             <div className="min-w-[2em] max-w-[2em]">
                                 <CareerDot important={career.important} />
                             </div>
