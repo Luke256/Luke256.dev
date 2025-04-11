@@ -104,7 +104,7 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
     const colors: string[] = []
     for (let i = 0; i < Nodes; i++)
     {
-        let r = Math.random();
+        const r = Math.random();
         if (r < 0.5) colors.push("white");
         else if (r < 0.7) colors.push("orange");
         else colors.push("yellow");
