@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Section from "./Section";
 import { FaGithub, FaTwitter } from "react-icons/fa";
-import { SiQiita, SiZenn } from "react-icons/si";
+import { SiZenn } from "react-icons/si";
 import Image from "next/image";
 import AtCoderWhiteImg from "@/images/atcoder_logo_white.png";
 import QiitaIcon from "@/images/qiita-icon.png";
