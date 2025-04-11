@@ -10,7 +10,7 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
     const Height = Width * (aspectRatio ? aspectRatio : 1);
     const Nodes = 48;
     let Vertex = [[0.5, Height - 1]];
-    const Edges: number[][] = [];
+    const Edges_: number[][] = [];
 
     while (Vertex.length < Nodes)
     {
@@ -42,6 +42,7 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
         Vertex = Vertex.map((v) => [Width - v[0], v[1]]);
     }
 
+    // tree Edges
     for (let i = 1; i < Nodes; i++)
     {
         let bestScore = Infinity;
@@ -63,16 +64,60 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
                 idx = j;
             }
         }
-        Edges.push([idx, i]);
+        if(idx != -1) Edges_.push([idx, i]);
+    }
+
+    // nearlest neighbor edges
+    for (let i = 0; i < Nodes; i++)
+    {
+        let bestScore = Infinity;
+        let idx = -1;
+        for (let j = 0; j < Nodes; j++)
+        {
+            if (i === j) continue;
+
+            const dx = Vertex[j][0] - Vertex[i][0];
+            const dy = Vertex[j][1] - Vertex[i][1];
+            const dist = Math.sqrt(dx ** 2 + dy ** 2);
+            
+            if (dist < bestScore)
+            {
+                bestScore = dist;
+                idx = j;
+            }
+        }
+        Edges_.push([i, idx]);
+    }
+    // remove duplicate edges
+    const uniqueEdges = new Set<string>();
+    const filteredEdges: number[][] = [];
+    for (const edge of Edges_) {
+        const edgeString = edge[0] < edge[1] ? `${edge[0]}-${edge[1]}` : `${edge[1]}-${edge[0]}`;
+        if (!uniqueEdges.has(edgeString)) {
+            uniqueEdges.add(edgeString);
+            filteredEdges.push(edge);
+        }
+    }
+    const Edges = filteredEdges;
+
+    const colors: string[] = []
+    for (let i = 0; i < Nodes; i++)
+    {
+        let r = Math.random();
+        if (r < 0.5) colors.push("white");
+        else if (r < 0.7) colors.push("orange");
+        else colors.push("yellow");
     }
 
     return (
         <svg className={"absolute " + className} viewBox={`0 0 ${Width} ${Height}`} preserveAspectRatio="none">
             {Vertex.map((v, i) => (
-                <circle key={i} cx={v[0]} cy={v[1]} r="0.2" fill="white" className="opacity-20" />
+                <circle key={i} cx={v[0]} cy={v[1]} r="0.2" fill={colors[i]} className="opacity-20" />
             ))}
             {Edges.map((e, i) => (
-                <line key={i} x1={Vertex[e[0]][0]} y1={Vertex[e[0]][1]} x2={Vertex[e[1]][0]} y2={Vertex[e[1]][1]} stroke="white" className="opacity-20" strokeWidth="0.1" strokeLinecap="round" />
+                <line key={i} x1={Vertex[e[0]][0]} y1={Vertex[e[0]][1]} x2={Vertex[e[1]][0]} y2={Vertex[e[1]][1]} className="opacity-20" strokeWidth="0.1" strokeLinecap="round"
+                    stroke={colors[e[0]] != "white" && colors[e[1]] != "white" ? colors[e[0]] : "white"}
+                 />
             ))}
         </svg>
     );
