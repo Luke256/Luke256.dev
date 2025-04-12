@@ -3,7 +3,7 @@ import HeadBar from "../HeadBar"
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
 import Link from "next/link";
-import TreeSVG from "./TreeSVG";
+import TreeSVG from "../svg/TreeSVG";
 
 const TopWindow = () => {
   return (
