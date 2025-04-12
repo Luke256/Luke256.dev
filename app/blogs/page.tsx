@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import { BlogInfo } from "@/components/blogs/BlogPage";
 
 export const metadata: Metadata = {
   title: "Works | Luke256's Portfolio",
@@ -24,7 +25,7 @@ const getBlogList = async () => {
     return blogs.filter((blog) => blog !== undefined);
   });
 
-  res.sort((a: any, b: any) => {
+  res.sort((a: BlogInfo, b: BlogInfo) => {
     return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
   });
 
@@ -41,7 +42,7 @@ const BlogPage = async () => {
         <Section title="ブログ一覧" maxWidth="max-w-5xl">
           <div className="h-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {blogList.map((blog: any, index: number) => (
+              {blogList.map((blog: BlogInfo, index: number) => (
                 <Link key={index} href={`/blogs/${blog.slug}`} className="h-full">
                   <div className="p-4 bg-white rounded shadow h-full flex md:flex-col justify-between">
                     <h2 className="text-xl font-bold text-gray-900">{blog.title}</h2>
