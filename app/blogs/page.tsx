@@ -26,7 +26,7 @@ const getBlogList = async () => {
   });
 
   res.sort((a: BlogInfo, b: BlogInfo) => {
-    return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 
   return res;
