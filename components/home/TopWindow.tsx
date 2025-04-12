@@ -4,6 +4,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
 import Link from "next/link";
 import TreeSVG from "../svg/TreeSVG";
+import FlameSword from "@/images/FlameSword.png";
 
 const TopWindow = () => {
   return (
@@ -37,7 +38,7 @@ const TopWindow = () => {
               </Link>
             </div>
           </div>
-          <Image src="/images/FlameSword.png" alt="FlameSword" width={256} height={256} className="animate-fade-in-load-delay opacity-0" />
+          <Image src={FlameSword} alt="FlameSword" width={256} height={256} className="animate-fade-in-load-delay opacity-0" />
         </div>
       </div>
     </div>
