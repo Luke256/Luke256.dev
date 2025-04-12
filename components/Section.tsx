@@ -17,8 +17,7 @@ const Section = ({ title, children, maxWidth }: Props) => {
 
   return (
     <div ref={ref} className="relative">
-
-      <div className={"text-white p-4 pt-10 pb-10 content-center sm:justify-self-center " + (maxWidth ? maxWidth : "max-w-3xl") }>
+      <div className={"text-white m-auto p-4 pt-10 pb-10 " + (maxWidth ? maxWidth : "max-w-3xl") }>
         <TreeSVG className="pointer-events-none bottom-0 left-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto invisible sm:visible" aspectRatio={1.8} />
         <TreeSVG className="pointer-events-none bottom-0 right-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto" aspectRatio={1.8} invert />
         <div className={"text-4xl font-bold pb-2 px-8 border-b-3 border-dashed border-b-indigo-400 w-max m-auto " + (inView ? "animate-fade-in-load" : "opacity-0")}>{title}</div>

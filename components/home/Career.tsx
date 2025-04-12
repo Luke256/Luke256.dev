@@ -40,48 +40,33 @@ const Career = () => {
 
     return (
         <Section title="経歴">
-            <div className="place-content-center overflow-x-auto">
-                <button className="flex w-full rounded-md hover:bg-gray-100/10 transition duration-200 ease-in-out cursor-pointer" onClick={toggleCollapse}>
-                    <div className="text-sm text-gray-500 min-w-[6em] text-right pr-1"></div>
-                    <div className="min-w-[2em] max-w-[2em]">
-                        <CareerDash />
-                    </div>
-                    <div className="font-mono font-medium content-center">
-                        <span className="align-middle">
-                            {Collapsed ? "Show All" : "Collapse"}
-                        </span>
-                    </div>
-                </button>
-                <table>
-                    <tbody>
+            <div className="place-content-center overflow-x-auto w-full">
+                <table className="table-fixed">
+                    <tbody className="">
+                        <tr>
+                            <td className=""></td>
+                            <td className="min-w-[2em] max-w-[2em] inline-block">
+                                <CareerDash />
+                            </td>
+                            <td>
+                                <button className="flex w-full rounded-md hover:bg-gray-100/10 transition duration-200 ease-in-out cursor-pointer" onClick={toggleCollapse}>
+                                    <div className="font-mono font-medium text-base whitespace-nowrap w-full text-left">
+                                        {Collapsed ? "Show All" : "Collapse"}
+                                    </div>
+                                </button>
+                            </td>
+                        </tr>
                         {careerList.map((career: Career, index: number) => (
-                            <tr key={index} className={"h-fit " + (Collapsed && !CollapseMask[index] ? "collapse" : "")}>
-                                <td className="text-sm text-gray-500 text-right min-w-[6em]">{career.date}</td>
-                                <td className="min-w-[2em] max-w-[2em]">
+                            <tr key={index} className={"" + (Collapsed && !CollapseMask[index] ? "hidden" : "")}>
+                                <td className="font-mono text-sm text-gray-500 text-right min-w-[6em] flex-none h-fit">{career.date}</td>
+                                <td className="min-w-[2em] max-w-[2em] inline-block">
                                     <CareerDot important={career.important} />
                                 </td>
-                                <td className="font-mono font-medium text-base whitespace-nowrap">{career.description}</td>
+                                <td className="font-mono font-medium text-base whitespace-nowrap w-full">{career.description}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                {/* <div className="overflow-x-auto">
-                    <button className="flex items-center w-full rounded-md hover:bg-gray-100/10 transition duration-200 ease-in-out cursor-pointer" onClick={toggleCollapse}>
-                        <div className="text-sm text-gray-500 min-w-[5em] text-right pr-1"></div>
-                        <div className="min-w-[2em] max-w-[2em]">
-                            <CareerDash />
-                        </div>
-                    </button>
-                    {careerList.map((career, index) => (
-                        <div key={index} className={"flex items-center " + (Collapsed && !CollapseMask[index] ? "collapse" : "visible")}>
-                            <div className="text-sm text-gray-500 min-w-[5em] text-right pr-1">{career.date}</div>
-                            <div className="min-w-[2em] max-w-[2em]">
-                                <CareerDot important={career.important} />
-                            </div>
-                            <div className="pl-1 font-mono font-medium text-base whitespace-nowrap">{career.description}</div>
-                        </div>
-                    ))}
-                </div> */}
             </div>
         </Section>
     )
