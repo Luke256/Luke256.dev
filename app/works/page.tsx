@@ -4,7 +4,7 @@ const WorksPage = () => {
   return (
     <main>
       <HeadBar />
-      <div className="max-w-3xl text-white mt-10 mb-10 m-auto">
+      <div className="max-w-3xl text-white m-auto min-h-[calc(100vh-var(--header-height)-var(--footer-height))]">
         Comming Soon...
       </div>
     </main>
