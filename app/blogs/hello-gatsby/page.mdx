@@ -1,13 +1,17 @@
-import MdxLayout from '@/components/mdx-layout'
 import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
 
 export default function MDXPage({ children }) {
   return (
-    <MdxLayout>
-        {children}
-    </MdxLayout>
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
   )
- 
 }
 
 # 目次
