@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Section from "./Section";
+import Section from "@/components/Section";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
 import Image from "next/image";

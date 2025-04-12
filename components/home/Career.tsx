@@ -1,7 +1,7 @@
 'use client'
 
 import CareerDot from "@/components/svg/CareerDot";
-import Section from "./Section";
+import Section from "@/components/Section";
 import careerList from "@/refdata/CareerList";
 import type { Career } from "@/refdata/CareerList";
 import CareerDash from "../svg/CareerDash";

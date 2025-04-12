@@ -1,4 +1,4 @@
-import Section from "./Section";
+import Section from "@/components/Section";
 import SubSection from "./SubSection";
 import Link from "next/link";
 import { FaCubes, FaChessKnight } from "react-icons/fa";

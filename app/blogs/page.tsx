@@ -1,4 +1,5 @@
 import HeadBar from "@/components/HeadBar"
+import Section from "@/components/Section";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,15 +7,20 @@ export const metadata: Metadata = {
   description: "Luke256's Portfolio",
 }
 
-const WorksPage = () => {
+const BlogPage = () => {
   return (
     <main>
       <HeadBar />
-      <div className="max-w-3xl text-white m-auto min-h-[calc(100vh-var(--header-height)-var(--footer-height))]">
-        Comming Soon...
+      <div className="min-h-[calc(100vh-var(--header-height)-var(--footer-height))]">
+        <Section title="ブログ一覧">
+          <div className="h-full">
+
+            <p>現在準備中です。</p>
+          </div>
+        </Section>
       </div>
     </main>
   )
 }
 
-export default WorksPage;
+export default BlogPage;
