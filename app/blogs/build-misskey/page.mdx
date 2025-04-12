@@ -1,10 +1,18 @@
----
-slug: "/post/build-misskey"
-title: "misskeyのインスタンスを立てました！"
-date: "2023-02-11"
-update: "2023-02-27"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
 
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
 
 # はじめに
 misskeyのインスタンスを立てたよ！っていうお話
@@ -61,7 +69,7 @@ cp ./docker-compose.yml.example ./docker-compose.yml
 
 と書かれているけど、基本的には`default.yml`の最初の`url`だけで十分
 
-![image1](/posts/built_misskey/image1.png) 
+![image1](/assets/blog/build_misskey/1.png) 
 
 ### ビルドと初期化
 
@@ -75,10 +83,10 @@ sudo docker compose run --rm web pnpm run init
 僕のところだと、ビルドに大体45分かかった  
 低電圧だったとはいえ、さすがに長い...
 
-![image2](/posts/built_misskey/image2.png)
+![image2](/assets/blog/build_misskey/2.png)
 2084秒....
 
-![image3](/posts/built_misskey/image3.png)
+![image3](/assets/blog/build_misskey/3.png)
 
 というわけで無事ビルドと初期化が完了。初期化はそこまで時間はかからなかった
 
@@ -128,18 +136,18 @@ sudo cloudflared service install SECRET_TOKEN!!!
 出てくる画面の上段に実際に表示させたいURL、下段にはラズパイ上でMisskeyが立っているURL(デフォルトなら`127.0.0.1:3000`)を入れる  
 
 こんな感じになる↓
-![image4](/posts/built_misskey/image4.png)
+![image4](/assets/blog/build_misskey/4.png)
 
 上段のDomainsでDNSが登録されているドメインが選択できる  
 できたらSave
 
 すべて終わると、ダッシュボードのDNSの欄にさっき設定したURLがCNAMEで出てくるはず
 
-![image5](/posts/built_misskey/image5.png)
+![image5](/assets/blog/build_misskey/5.png)
 
 そしたら、数十分程度待ってあげると...
 
-![image6](/posts/built_misskey/image6.png)
+![image6](/assets/blog/build_misskey/6.png)
 
 Hello, Misskey！！！！
 

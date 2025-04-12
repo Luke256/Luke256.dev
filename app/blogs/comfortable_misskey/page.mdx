@@ -1,9 +1,18 @@
----
-slug: "/post/comfortable-misskey"
-title: "misskeyインスタンス構築 - 環境整備編"
-date: "2023-05-04"
-update: "2023-05-04"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
 
 僕のmisskeyのインスタンスはラズパイで立てているので、電源周りやらストレージやらがいつ壊れるか少し怖い。
 
@@ -47,7 +56,7 @@ R2のダッシュボードに戻って、右上の「Manage R2 API Tokens」か�
 
 と設定して(下のやつは放置で大丈夫)、作成。
 
-![設定後](/posts/comfortable_misskey/image1.png)
+![設定後](/assets/blog/comfortable-misskey/image1.png)
 
 すると、AccessKeyIDとSecretAccessKeyの二つが出てくるので、必ずメモしておく
 
@@ -68,7 +77,7 @@ R2のダッシュボードに戻って、右上の「Manage R2 API Tokens」か�
 
 設定後(クリックして拡大)↓
 
-![設定後画像](/posts/comfortable_misskey/image2.png)
+![設定後画像](/assets/blog/comfortable-misskey/image2.png)
 
 これで実際に画像をアップロードしてみて、正常にできていたら完了。  
 

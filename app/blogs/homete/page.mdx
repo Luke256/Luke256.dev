@@ -1,0 +1,31 @@
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
+
+# 概要
+こんなソフトあれば便利だなー、と思って作ってみました。タスク管理+タイマーソフト「Homete」です。
+タスクをきめて、作業時間と休憩時間を交互に挟みつつ作業が終わったらTwitterで作業完了を共有できます！
+
+# リンク
+Windows: Coming Soon...  
+MacOS: [homete.zip](/assets/blog/homete/homete.zip)  
+Web版: https://luke256.github.io/homete  
+
+# ギャラリー
+![image_1](/assets/blog/homete/pic1.png)  
+![image_2](/assets/blog/homete/pic2.png)  
+![image_3](/assets/blog/homete/pic3.png)  
+![image_4](/assets/blog/homete/pic4.png)  
+

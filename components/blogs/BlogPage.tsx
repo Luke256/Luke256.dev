@@ -22,7 +22,7 @@ const BlogPage = ({ bloginfo, children }: props) => {
       </div>
 
       <div className="max-w-4xl p-12 m-auto bg-gray-200">
-        <h1 className="text-5xl font-bold text-gray-800">{bloginfo.title}</h1>
+        <h1 className="text-5xl font-bold text-gray-800 leading-tight">{bloginfo.title}</h1>
         <div className="mt-2">
           <UpdatesInfo createdAt={bloginfo.createdAt} updatedAt={bloginfo.updatedAt} />
         </div>

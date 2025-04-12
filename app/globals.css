@@ -13,13 +13,13 @@
 
 @theme {
     /*ロード時に発火*/
-    --animate-fade-in-load: fade-in-load 0.5s ease-in-out forwards;
-    --animate-fade-in-load-delay: fade-in-load 0.5s ease-in-out forwards 0.25s;
+    --animate-fade-in-load: fade-in-load 0.2s ease-in-out forwards;
+    --animate-fade-in-load-delay: fade-in-load 0.2s ease-in-out forwards 0.25s;
 
     @keyframes fade-in-load {
         0% {
             opacity: 0;
-            transform: translateY(2rem);
+            transform: translateY(1rem);
             filter: blur(0.1rem);
         }
         100% {

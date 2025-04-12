@@ -1,9 +1,19 @@
----
-slug: "/post/joi2022"
-title: "JOI 2022/2023の本選に参加したよーっていう話"
-date: "2023-02-15"
-update: "2023-02-15"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
+
 # はじめに
 2/5,12でオンラインで開催された日本情報オリンピックの本選に参加しました
 
@@ -42,7 +52,7 @@ xy逆にする馬鹿をやらかした....
 ### 2問目(B - 宣伝 2)
 よくわからんので数直線上に書いてみる
 
-![がぞー](/posts/JOI2022/image1.png)
+![がぞー](/assets/blog/joi2022/image1.png)
 
 すると、人Aの三角形が人Bの三角形に周を含んで完全に含まれていれば、人Bに献本すればAは買うことになることがわかった
 

@@ -1,14 +1,23 @@
----
-slug: "/post/AHC020"
-title: "AHC020参加記"
-date: "2023-06-17"
-update: "2023-06-17"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
 
 # はじめに
 ALGO ARTIS プログラミングコンテスト2023(AtCoder Heuristic Contetst 020)に参加しました
 
-![順位表](/posts/AHC020/image1.png)
+![順位表](/assets/blog/ahc020/1.png)
 
 黄パフォが取れました！うれしい！
 
@@ -66,9 +75,7 @@ Visualizerを見て無駄な辺があることを確認したので、クラス�
 それまでは「各家から最も近い放送局」を選んでいたのを、「各家につながるための追加コストが最も低い放送局」を選ぶようにした。  
 これがかなりうまくいって、暫定順位が3位で上がる。めっちゃうれしい
 
-```twitter
-1667798889456635904
-```
+<Tweet id="1667798889456635904" />
 
 ## 8.~ それ以降
 今までヒューリスティックでそんなに良いパフォーマンスが出せなかったのが、一瞬とはいえ3位まで上がることができ、満足してしまったために思考を放棄。  

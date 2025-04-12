@@ -1,17 +1,24 @@
----
-slug: "/post/ap"
-title: "応用情報技術者試験に合格しました！"
-date: "2022-12-25"
-update: "2022-12-25"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
 
 # はじめに
 
 応用情報技術者試験に合格しました！
 
-```twitter
-1605761823776464896
-```
+<Tweet id="1605761823776464896" />
 
 とあるWindows実行ファイルさんがAP合格をブログにしていたので、僕も書いてみる
 

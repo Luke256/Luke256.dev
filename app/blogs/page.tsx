@@ -24,6 +24,10 @@ const getBlogList = async () => {
     return blogs.filter((blog) => blog !== undefined);
   });
 
+  res.sort((a: any, b: any) => {
+    return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+  });
+
   return res;
 }
 
@@ -34,15 +38,17 @@ const BlogPage = async () => {
     <main>
       <HeadBar />
       <div className="min-h-[calc(100vh-var(--header-height)-var(--footer-height))]">
-        <Section title="ブログ一覧">
+        <Section title="ブログ一覧" maxWidth="max-w-5xl">
           <div className="h-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {blogList.map((blog: any, index: number) => (
-                <Link key={index} href={`/blogs/${blog.slug}`}>
-                  <div className="p-4 bg-white rounded shadow">
-                    <h2 className="text-2xl font-bold text-gray-900">{blog.title}</h2>
-                    <p className="text-gray-600">Created at: {blog.createdAt}</p>
-                    <p className="text-gray-600">Updated at: {blog.updatedAt}</p>
+                <Link key={index} href={`/blogs/${blog.slug}`} className="h-full">
+                  <div className="p-4 bg-white rounded shadow h-full flex md:flex-col justify-between">
+                    <h2 className="text-xl font-bold text-gray-900">{blog.title}</h2>
+                    <div className="">
+                      <p className="text-gray-600">Created at: {blog.createdAt}</p>
+                      <p className="text-gray-600">Updated at: {blog.updatedAt}</p>
+                    </div>
                   </div>
                 </Link>
               ))}
