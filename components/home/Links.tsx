@@ -5,6 +5,7 @@ import { SiZenn } from "react-icons/si";
 import Image from "next/image";
 import AtCoderWhiteImg from "@/images/atcoder_logo_white.png";
 import QiitaIcon from "@/images/qiita-icon.png";
+import ResumeIcon from "@/images/resume-logo-dark-edit.png";
 
 const Links = () => {
     return (
@@ -18,7 +19,7 @@ const Links = () => {
                         </div>
                     </div>
                 </Link>
-                <Link href="https://twitter.com/Luke02561" className="" target="_blank" rel="noopener noreferrer">
+                <Link href="https://twitter.com/Luke02561" className="sm:col-span-2" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#00acee40] hover:bg-[#00acee60] transition duration-300">
                         <FaTwitter className="text-4xl" color="00acee" />
                         <div className="ml-4 content-center">
@@ -47,6 +48,14 @@ const Links = () => {
                         <Image src={QiitaIcon} alt="Qiita" className="h-[36px] w-auto" />
                         <div className="ml-4 content-center">
                             <span>Qiita @Luke02561</span>
+                        </div>
+                    </div>
+                </Link>
+                <Link href="https://www.resume.id/luke256/works" className="" target="_blank" rel="noopener noreferrer">
+                    <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#329eff40] hover:bg-[#329eff60] transition duration-300">
+                        <Image src={ResumeIcon} alt="Resume" className="h-[36px] w-auto" />
+                        <div className="ml-4 content-center">
+                            <span>RESUME luke256</span>
                         </div>
                     </div>
                 </Link>
