@@ -1,9 +1,18 @@
----
-slug: "/post/pck2023yo"
-title: "パソコン甲子園2023参加記 予選篇"
-date: "2023-09-10"
-update: "2023-09-10"
----
+import { Tweet } from 'react-tweet'
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
 
 # 概要
 9月9日に開催された[パソコン甲子園2023(PCK)](https://pckoshien.u-aizu.ac.jp/)プログラミング部門予選に出場しました。結果は1~9問正解の9完で、ペアと合わせて計15完7ぺナの10位(順位表凍結時点)でした。
@@ -66,7 +75,7 @@ update: "2023-09-10"
 というわけでとりあえず図を書いてみる。そこで対角線を使えば良い感じに判定ができることに気づいたので、対角線の長さが等しく、直交する条件を書いて提出。祈る。他の問題を解いてから見るとWAで帰ってきた。悲しい。(00:10:08)
 
 コーナーケースを考えると、狐のような形だと漏れてしまうことがわかった。こんなの。
-![きつね](/posts/PCK2023_yo/image.png)
+![きつね](/assets/pck2023yo_1.png)
 
 というわけで角度の条件を2つくらい付け足して提出。祈ってAC。(00:40:50)
 
