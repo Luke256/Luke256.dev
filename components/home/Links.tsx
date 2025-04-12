@@ -35,7 +35,7 @@ const Links = () => {
                         </div>
                     </div>
                 </Link>
-                <Link href="https://zenn.dev/luke256" className="" target="_blank" rel="noopener noreferrer">
+                <Link href="https://atcoder.jp/users/yuta28" className="" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#23181540] hover:bg-[#23181560] transition duration-300">
                         <Image src={AtCoderWhiteImg} alt="AtCoder" className="h-[36px] w-auto"/>
                         <div className="ml-4 content-center">
