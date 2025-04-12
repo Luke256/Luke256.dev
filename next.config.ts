@@ -3,10 +3,15 @@ import createMDX from '@next/mdx'
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
+
+const pcOptions = {
+
+}
 
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
@@ -16,7 +21,8 @@ const withMDX = createMDX({
       remarkMath
     ],
     rehypePlugins: [
-      rehypeKatex
+      rehypeKatex,
+      [rehypePrettyCode, pcOptions]
     ],
   }
 })
