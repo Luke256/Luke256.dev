@@ -4,6 +4,9 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+import remarkToc from "remark-toc";
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
@@ -18,11 +21,14 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [
       remarkGfm,
-      remarkMath
+      remarkMath,
+      [remarkToc, { heading: '目次', tight: true }],
     ],
     rehypePlugins: [
       rehypeKatex,
-      [rehypePrettyCode, pcOptions]
+      [rehypePrettyCode, pcOptions],
+      rehypeSlug,
+      rehypeAutolinkHeadings,
     ],
   }
 })
