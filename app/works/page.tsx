@@ -1,4 +1,10 @@
 import HeadBar from "@/components/HeadBar"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Works | Luke256's Portfolio",
+  description: "Luke256's Portfolio",
+}
 
 const WorksPage = () => {
   return (

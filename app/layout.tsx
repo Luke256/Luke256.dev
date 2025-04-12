@@ -1,5 +1,14 @@
 import Footer from '@/components/Footer';
 import './globals.css';
+import { Head } from 'next/document';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Luke256's Portfolio",
+  description: "Luke256's Portfolio",
+  
+}
+
 
 export default function RootLayout({
   children,
