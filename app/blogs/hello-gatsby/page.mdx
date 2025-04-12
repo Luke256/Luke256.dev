@@ -1,9 +1,13 @@
----
-slug: "/post/hello-gatsby"
-title: "Hello, Gatsby.js!"
-date: "2022-08-24"
-update: "2022-08-24"
----
+import MdxLayout from '@/components/mdx-layout'
+
+export default function MDXPage({ children }) {
+  return (
+    <MdxLayout>
+        {children}
+    </MdxLayout>
+  )
+ 
+}
 
 # 初めてのGatsby.js!
 Gatsby.jsで自分のHPを作ってみました！  
