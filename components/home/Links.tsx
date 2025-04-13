@@ -51,7 +51,7 @@ const Links = () => {
                         </div>
                     </div>
                 </Link>
-                <Link href="https://www.resume.id/luke256/works" className="" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.resume.id/luke256" className="" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#329eff40] hover:bg-[#329eff60] transition duration-300">
                         <Image src={ResumeIcon} alt="Resume" className="h-[36px] w-auto" />
                         <div className="ml-4 content-center">
