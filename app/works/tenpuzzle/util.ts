@@ -6,10 +6,10 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
     }
 
     if (stk.length >= 2) {
-        let s = stk.slice();
-        let q = que.slice();
-        let rhs = s.pop()!;
-        let lhs = s.pop()!;
+        const s = stk.slice();
+        const q = que.slice();
+        const rhs = s.pop()!;
+        const lhs = s.pop()!;
 
         // +
         s.push(lhs + rhs);
@@ -47,9 +47,9 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
     }
 
     if (que.length > 0) {
-        let s = stk.slice();
-        let q = que.slice();
-        let next = q.shift()!;
+        const s = stk.slice();
+        const q = que.slice();
+        const next = q.shift()!;
 
         // push next to stack
         s.push(next);
@@ -62,7 +62,7 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
 }
 
 const decodeAnswer = (answer: string, values: Array<number>): string => {
-    let stk: Array<string> = [];
+    const stk: Array<string> = [];
     let valIndex = 0;
 
     for (let i = 0; i < answer.length; i++) {
@@ -121,8 +121,8 @@ const SolveTenPuzzle = (arr: Array<number>, target: number): string => {
     arr.sort();
 
     do {
-        let stk: Array<number> = [];
-        let que: Array<number> = arr.slice();
+        const stk: Array<number> = [];
+        const que: Array<number> = arr.slice();
         let answer: Array<string> = [];
 
         if (solverSub(stk, que, target, answer)) {
