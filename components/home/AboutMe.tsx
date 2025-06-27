@@ -3,7 +3,6 @@ import SubSection from "./SubSection";
 import Link from "next/link";
 import { FaCubes, FaChessKnight } from "react-icons/fa";
 
-
 const AboutMe = () => {
   return (
     <Section title="About Me">
