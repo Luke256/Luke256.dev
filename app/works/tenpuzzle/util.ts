@@ -1,4 +1,4 @@
-
+'use client';
 
 const solverSub = (stk: Array<number>, que: Array<number>, target: number, answer: Array<string>): boolean => {
     if (stk.length === 1 && que.length === 0) {
