@@ -17,6 +17,7 @@ const AboutMe = () => {
       <div className="text-lg font-mono font-medium mt-8">
         <ul className="list-disc list-inside">
           <li>東京科学大学 情報理工学院 情報工学系 2年</li>
+          <li><Link href="https://swallow-llm.github.io/index.ja.html" target="_blank" aria-label="trap" className="text-indigo-300">Swallow LLM</Link> メンバー</li>
           <li><Link href="https://trap.jp" target="_blank" aria-label="trap" className="text-indigo-300">東京科学大学デジタル創作同好会traP</Link></li>
           <li><Link href="https://onlinemathcontest.com" target="_blank" aria-label="OnlineMathContest" className="text-indigo-300">OnlineMathContest</Link> 開発運営</li>
         </ul>
