@@ -6,7 +6,12 @@ import { useEffect, useState } from "react";
 import Section from "@/components/Section";
 import { BlockMath } from "react-katex";
 import 'katex/dist/katex.min.css';
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "TenPuzzle | Works | Luke256's Portfolio",
+  description: "テンパズルのソルバー",
+}
 
 const TenPuzzlePage = () => {
     const [valuesString, setValuesString] = useState("");

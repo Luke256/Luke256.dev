@@ -2,12 +2,6 @@ import Section from "@/components/Section";
 import SubSection from "./SubSection";
 import Link from "next/link";
 import { FaCubes, FaChessKnight } from "react-icons/fa";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "TenPuzzle | Luke256's Portfolio",
-  description: "テンパズルのソルバー",
-}
 
 const AboutMe = () => {
   return (
