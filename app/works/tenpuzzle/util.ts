@@ -65,7 +65,14 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
             return true;
         }
     }
-    memory.add(Node2String(stk, que, target));
+
+    if (memory.size >= 8000000) {
+        memory = new Set<string>(); // clear memory if it gets too large
+    }
+    if (que.length >= 3)
+    {
+        memory.add(Node2String(stk, que, target));
+    }
     return false;
 }
 
@@ -126,31 +133,33 @@ function next_permutation(arr: Array<number>): boolean {
     return false;
 }
 
-const solveWithAnswer = (arr: Array<number>, target: number): string => {
+const solveWithAnswer = (arr: Array<number>, target: number, memory: Set<string>): string => {
     const stk: Array<number> = [];
     const que: Array<number> = arr.slice();
     let answer: Array<string> = [];
-    const memory: Set<string> = new Set();
     if (solverSub(stk, que, target, answer, memory)) {
         answer = answer.reverse();
+        console.log('memory size:', memory.size);
         return decodeAnswer(answer.join(''), arr);
     }
     return '';
 }
 
-const SolveTenPuzzle = (arr: Array<number>, target: number): string => {    
-    
-    const result = solveWithAnswer(arr, target);
+const SolveTenPuzzle = (arr: Array<number>, target: number): string => {
+    const memory: Set<string> = new Set();
+
+    const result = solveWithAnswer(arr, target, memory);
     if (result) {
         return result;
     }
 
     arr.sort();
     do {
-        const result = solveWithAnswer(arr, target);
+        const result = solveWithAnswer(arr, target, memory);
         if (result) {
             return result;
         }
+        console.log('Not found for:', arr);
     } while (next_permutation(arr));
     return '';
 }
