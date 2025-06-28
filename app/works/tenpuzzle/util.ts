@@ -1,8 +1,15 @@
 'use client';
 
-const solverSub = (stk: Array<number>, que: Array<number>, target: number, answer: Array<string>): boolean => {
+const Node2String = (stk: Array<number>, que: Array<number>, target: number): string => {
+    return `${stk.join(', ')}|${que.join(', ')}|${target}`;
+}
+
+const solverSub = (stk: Array<number>, que: Array<number>, target: number, answer: Array<string>, memory: Set<string>): boolean => {
     if (stk.length === 1 && que.length === 0) {
         return stk[0] === target;
+    }
+    if (memory.has(Node2String(stk, que, target))) {
+        return false; // already visited this state
     }
 
     if (stk.length >= 2) {
@@ -13,7 +20,7 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
 
         // +
         s.push(lhs + rhs);
-        if (solverSub(s, q, target, answer)) {
+        if (solverSub(s, q, target, answer, memory)) {
             answer.push('+');
             return true;
         }
@@ -21,7 +28,7 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
 
         // -
         s.push(lhs - rhs);
-        if (solverSub(s, q, target, answer)) {
+        if (solverSub(s, q, target, answer, memory)) {
             answer.push('-');
             return true;
         }
@@ -29,7 +36,7 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
 
         // *
         s.push(lhs * rhs);
-        if (solverSub(s, q, target, answer)) {
+        if (solverSub(s, q, target, answer, memory)) {
             answer.push('*');
             return true;
         }
@@ -38,7 +45,7 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
         // /
         if (rhs !== 0) {
             s.push(lhs / rhs);
-            if (solverSub(s, q, target, answer)) {
+            if (solverSub(s, q, target, answer, memory)) {
                 answer.push('/');
                 return true;
             }
@@ -53,11 +60,12 @@ const solverSub = (stk: Array<number>, que: Array<number>, target: number, answe
 
         // push next to stack
         s.push(next);
-        if (solverSub(s, q, target, answer)) {
+        if (solverSub(s, q, target, answer, memory)) {
             answer.push('s');
             return true;
         }
     }
+    memory.add(Node2String(stk, que, target));
     return false;
 }
 
@@ -122,8 +130,10 @@ const solveWithAnswer = (arr: Array<number>, target: number): string => {
     const stk: Array<number> = [];
     const que: Array<number> = arr.slice();
     let answer: Array<string> = [];
-    if (solverSub(stk, que, target, answer)) {
+    const memory: Set<string> = new Set();
+    if (solverSub(stk, que, target, answer, memory)) {
         answer = answer.reverse();
+    console.log('memory size:', memory.size);
         return decodeAnswer(answer.join(''), arr);
     }
     return '';
