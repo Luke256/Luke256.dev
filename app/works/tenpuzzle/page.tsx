@@ -1,4 +1,3 @@
-import HeadBar from "@/components/HeadBar";
 import { Metadata } from "next";
 import TenPuzzleComponent from "./tenPuzzle";
 

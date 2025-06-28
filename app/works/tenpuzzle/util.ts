@@ -118,17 +118,29 @@ function next_permutation(arr: Array<number>): boolean {
     return false;
 }
 
-const SolveTenPuzzle = (arr: Array<number>, target: number): string => {
+const solveWithAnswer = (arr: Array<number>, target: number): string => {
+    const stk: Array<number> = [];
+    const que: Array<number> = arr.slice();
+    let answer: Array<string> = [];
+    if (solverSub(stk, que, target, answer)) {
+        answer = answer.reverse();
+        return decodeAnswer(answer.join(''), arr);
+    }
+    return '';
+}
+
+const SolveTenPuzzle = (arr: Array<number>, target: number): string => {    
+    
+    const result = solveWithAnswer(arr, target);
+    if (result) {
+        return result;
+    }
+
     arr.sort();
-
     do {
-        const stk: Array<number> = [];
-        const que: Array<number> = arr.slice();
-        let answer: Array<string> = [];
-
-        if (solverSub(stk, que, target, answer)) {
-            answer = answer.reverse();
-            return decodeAnswer(answer.join(''), arr);
+        const result = solveWithAnswer(arr, target);
+        if (result) {
+            return result;
         }
     } while (next_permutation(arr));
     return '';
