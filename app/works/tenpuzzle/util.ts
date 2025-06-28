@@ -77,18 +77,19 @@ const decodeAnswer = (answer: string, values: Array<number>): string => {
             if (lhs[0] == '*') lhs = lhs.slice(2, -1);
             stk.push(`*(${lhs}${c}${rhs})`);
         }
-        else if (c == '*' || c == '/') {
+        else if (c == '*') {
             let rhs = stk.pop()!;
             let lhs = stk.pop()!;
             if (rhs[0] == '*') rhs = rhs.slice(1);
             if (lhs[0] == '*') lhs = lhs.slice(1);
-            // stk.push(`${lhs}${c}${rhs}`);
-            if (c == '*') {
-                stk.push(`${lhs}\\times${rhs}`);
-            }
-            else {
-                stk.push(`\\frac{${lhs}}{${rhs}}`);
-            }
+            stk.push(`${lhs}\\times${rhs}`);
+        }
+        else if (c == '/') {
+            let rhs = stk.pop()!;
+            let lhs = stk.pop()!;
+            if (rhs[0] == '*') rhs = rhs.slice(2, -1);
+            if (lhs[0] == '*') lhs = lhs.slice(2, -1);
+            stk.push(`\\frac{${lhs}}{${rhs}}`);
         }
     }
 
@@ -117,17 +118,29 @@ function next_permutation(arr: Array<number>): boolean {
     return false;
 }
 
-const SolveTenPuzzle = (arr: Array<number>, target: number): string => {
+const solveWithAnswer = (arr: Array<number>, target: number): string => {
+    const stk: Array<number> = [];
+    const que: Array<number> = arr.slice();
+    let answer: Array<string> = [];
+    if (solverSub(stk, que, target, answer)) {
+        answer = answer.reverse();
+        return decodeAnswer(answer.join(''), arr);
+    }
+    return '';
+}
+
+const SolveTenPuzzle = (arr: Array<number>, target: number): string => {    
+    
+    const result = solveWithAnswer(arr, target);
+    if (result) {
+        return result;
+    }
+
     arr.sort();
-
     do {
-        const stk: Array<number> = [];
-        const que: Array<number> = arr.slice();
-        let answer: Array<string> = [];
-
-        if (solverSub(stk, que, target, answer)) {
-            answer = answer.reverse();
-            return decodeAnswer(answer.join(''), arr);
+        const result = solveWithAnswer(arr, target);
+        if (result) {
+            return result;
         }
     } while (next_permutation(arr));
     return '';

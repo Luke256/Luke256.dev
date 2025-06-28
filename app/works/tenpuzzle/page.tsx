@@ -1,4 +1,3 @@
-import HeadBar from "@/components/HeadBar";
 import { Metadata } from "next";
 import TenPuzzleComponent from "./tenPuzzle";
 
@@ -10,8 +9,8 @@ export const metadata: Metadata = {
 const TenPuzzlePage = () => {
     return (
         <main>
-            <HeadBar />
-            <div className="min-h-[calc(100vh-var(--header-height)-var(--footer-height))]">
+            {/* <HeadBar /> */}
+            <div className="min-h-[calc(100vh-var(--footer-height))]">
                 <TenPuzzleComponent />
             </div>
         </main>
