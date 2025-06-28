@@ -139,7 +139,6 @@ const solveWithAnswer = (arr: Array<number>, target: number, memory: Set<string>
     let answer: Array<string> = [];
     if (solverSub(stk, que, target, answer, memory)) {
         answer = answer.reverse();
-        console.log('memory size:', memory.size);
         return decodeAnswer(answer.join(''), arr);
     }
     return '';
@@ -159,7 +158,6 @@ const SolveTenPuzzle = (arr: Array<number>, target: number): string => {
         if (result) {
             return result;
         }
-        console.log('Not found for:', arr);
     } while (next_permutation(arr));
     return '';
 }
