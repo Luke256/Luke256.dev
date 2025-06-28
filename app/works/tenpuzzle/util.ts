@@ -133,7 +133,6 @@ const solveWithAnswer = (arr: Array<number>, target: number): string => {
     const memory: Set<string> = new Set();
     if (solverSub(stk, que, target, answer, memory)) {
         answer = answer.reverse();
-    console.log('memory size:', memory.size);
         return decodeAnswer(answer.join(''), arr);
     }
     return '';
