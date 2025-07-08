@@ -7,6 +7,7 @@ type BlogInfo = {
   title: string;
   createdAt: string;
   updatedAt: string;
+  type?: string;
 }
 
 type props = {
