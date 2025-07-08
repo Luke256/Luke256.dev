@@ -3,6 +3,8 @@ import { BlogInfo } from "./BlogPage";
 import Link from "next/link";
 
 const BlogItem = ({ blog }: { blog: BlogInfo }) => {
+    if (blog.slug === undefined) return <></>;
+    
     if (blog.type === "zenn") {
         return (
             <Link href={blog.slug} className="h-full">
