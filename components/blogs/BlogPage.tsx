@@ -3,10 +3,11 @@ import UpdatesInfo from "./UpdatesInfo";
 import MdxLayout from "../mdx-layout";
 
 type BlogInfo = {
-  slug?: string;
+  slug: string;
   title: string;
   createdAt: string;
   updatedAt: string;
+  type: string;
 }
 
 type props = {
