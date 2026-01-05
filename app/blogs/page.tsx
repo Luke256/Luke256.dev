@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Luke256's Portfolio",
 }
 
+// for Zenn feed caching
+export const revalidate = 3600;
+
 const getLocalBlogList = async () => {
   const files = fs.readdirSync(path.join(process.cwd(), "app/blogs"));
   const blogList = files.map(async (file) => {
