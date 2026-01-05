@@ -8,7 +8,7 @@ import Parser from "rss-parser";
 import BlogItem from "@/components/blogs/BlogItem";
 
 export const metadata: Metadata = {
-  title: "Works | Luke256's Portfolio",
+  title: "Blogs | Luke256's Portfolio",
   description: "Luke256's Portfolio",
 }
 
