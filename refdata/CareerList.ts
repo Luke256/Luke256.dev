@@ -21,6 +21,7 @@ const careerList: Career[] = [
     { date: "2024-04", description: "東京工業大学情報理工学院入学", important: true },
     { date: "2024-12", description: "ISUCON14 全体115位 / 学生10位" },
     { date: "2025-07", description: "ICPC2025 予選75位" },
+    { date: "2025-01", description: "SWIMMER OSINT 2025 176位 (Luke256)" },
 ];
 
 export default careerList;
