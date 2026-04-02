@@ -7,7 +7,7 @@ const AboutMe = () => {
   return (
     <Section title="About Me">
       <div className="text-lg font-mono font-midium mt-4">
-        プログラミングが好きな大学二年生です。<br />
+        プログラミングが好きな大学三年生です。<br />
         ゲーム作ったりWebアプリ作ったりしてます。
       </div>
       <h2 className="text-3xl font-bold mb-4 mt-8 text-teal-200 text-center">
@@ -35,7 +35,7 @@ const AboutMe = () => {
         <SubSection title="技術系" titleClassName="text-blue-200" icon={<FaChessKnight className="text-3xl mr-2 text-blue-200" />}>
           <span className="text-lg font-mono font-medium">
             競技プログラミングをやっています。
-            また機械学習、主に強化学習の分野の研究に興味があります。
+            また強化学習のような機械学習、プログラミング言語における設計思想などに少し興味があります。
           </span>
         </SubSection>
       </div>
