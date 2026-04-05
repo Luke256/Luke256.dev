@@ -17,6 +17,12 @@ export const WorksList = [
         description: "二つのWAVファイルからイントロ付きループ用音源に変換するウェブアプリです",
         slug: "https://wav-concat.luke256.dev",
         internal: false,
+    },
+    {
+        title: "Suzume",
+        description: "Go言語用のCLIツールのフレームワークです",
+        slug: "https://github.com/luke256/suzume",
+        internal: false
     }
 ]
 
