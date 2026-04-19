@@ -23,6 +23,18 @@ export const WorksList = [
         description: "Go言語用のCLIツールのフレームワークです",
         slug: "https://github.com/luke256/suzume",
         internal: false
+    },
+    {
+        title: "Q-Rush",
+        description: "とあるゲームジャムで6時間くらいで作ったミニゲームです (音はありません)",
+        slug: "q-rush",
+        internal: true
+    },
+    {
+        title: "Q-Rush (source)",
+        description: "Q-Rushのソースコードです。OpenSiv3Dが必要です",
+        slug: "https://github.com/luke256/q-rush",
+        internal: false
     }
 ]
 
