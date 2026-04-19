@@ -12,6 +12,14 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  async rewrites() {
+    return [
+      {
+        source: '/works/q-rush',
+        destination: '/works/q-rush/index.html',
+      }
+    ]
+  }
 };
 
 const pcOptions = {
