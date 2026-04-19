@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/works/q-rush',
-        destination: '/works/q-rush/index.html',
+        destination: '/works/q-rush/q-rush-web.html',
       }
     ]
   }
