@@ -1,0 +1,43 @@
+import bloginfo from "./metadata"
+import BlogPage from "@/components/blogs/BlogPage"
+
+export const metadata = {
+  title: bloginfo.title + " | Luke256のブログ",
+}
+
+export default function MDXPage({ children }) {
+  return (
+    <BlogPage bloginfo={bloginfo}>
+      {children}
+    </BlogPage>
+  )
+}
+
+# 概要
+Go Conference 2026 に参加してきたので、当日の記録をまとめます。
+
+# 目次
+
+# 参加前
+- 参加目的
+- 事前に準備したこと
+
+# 当日
+## 会場の様子
+- （ここに会場の雰囲気や運営の印象を追記）
+
+## 聞いたセッション
+### セッション1
+- タイトル:
+- 印象に残ったポイント:
+
+### セッション2
+- タイトル:
+- 印象に残ったポイント:
+
+# 学んだこと
+- Go 言語・周辺技術で新しく得た知見
+- 今後試してみたいこと
+
+# おわりに
+運営・登壇者・参加者の皆さま、ありがとうございました。
