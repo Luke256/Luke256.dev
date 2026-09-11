@@ -22,8 +22,8 @@ const BlogPage = ({ bloginfo, children }: props) => {
         <HeadBar />
       </div>
 
-      <div className="max-w-4xl p-12 m-auto bg-gray-200">
-        <h1 className="text-5xl font-bold text-gray-800 leading-tight">{bloginfo.title}</h1>
+      <div className="max-w-4xl m-auto bg-white px-5 py-10 sm:p-12">
+        <div className="text-3xl font-bold leading-tight sm:text-5xl">{bloginfo.title}</div>
         <div className="mt-2">
           <UpdatesInfo createdAt={bloginfo.createdAt} updatedAt={bloginfo.updatedAt} />
         </div>

@@ -124,12 +124,13 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
     const Nodes = 48;
 
     const [{ Vertex, Edges, colors}, setTree] = useState<Tree>({Vertex: [], Edges: [], colors: []});
-    const [fade, setFade] = useState("");
+    const fade = Vertex.length > 0 ? "animate-fade-in-load-delay opacity-0 " : "";
 
     useEffect(() => {
         const tree = genTree(Width, Height, Nodes, invert ? invert : false);
+        // The random tree must be generated after hydration so the server and client markup match.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setTree(tree);
-        setFade("animate-fade-in-load-delay opacity-0 ");
     }, [Width, Height, Nodes, invert]);
 
     return (

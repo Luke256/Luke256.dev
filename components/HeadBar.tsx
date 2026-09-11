@@ -11,7 +11,7 @@ const HeadBar = () => {
         </div>
       </Link>
       <Link href="/">
-        <Image src={FlameSword} alt="FlameSword" width={32} height={32} />
+        <Image src={FlameSword} alt="FlameSword" width={32} height={32} loading="eager"/>
       </Link>
       <Link href="/works">
         <div className="trainsition duration-150 ease-in-out px-4 py-1 border-b-2 border-indigo-500/0 hover:border-indigo-500">

@@ -9,7 +9,7 @@ const UpdatesInfo = ({ createdAt, updatedAt }: Props) => {
         <div className="text-sm text-gray-500 dark:text-gray-400">
             <div className="flex gap-2">
                 <span>作成日: {createdAt}</span>
-                <span>更新日: {updatedAt}</span>
+                {createdAt != updatedAt && <span>更新日: {updatedAt}</span>}
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ const TopWindow = () => {
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
         <div className="flex flex-col-reverse sm:flex-row items-center place-content-center sm:justify-around h-full lg:px-4 md:px-1">
           <div className="animate-fade-in-load opacity-0">
-            <div className="text-4xl md:text-6xl font-black font-mono bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-transparent">
+            <div className="text-4xl md:text-6xl font-black font-mono bg-clip-text bg-linear-to-r from-indigo-500 to-fuchsia-600 text-transparent">
               <h1 className="p-1">
                 Luke256&apos;s
               </h1>
@@ -38,7 +38,7 @@ const TopWindow = () => {
               </Link>
             </div>
           </div>
-          <Image src={FlameSword} alt="FlameSword" width={256} height={256} className="animate-fade-in-load-delay opacity-0" />
+          <Image src={FlameSword} alt="FlameSword" width={256} height={256} className="animate-fade-in-load-delay opacity-0" loading="eager"/>
         </div>
       </div>
     </div>

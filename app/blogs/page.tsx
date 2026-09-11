@@ -34,7 +34,10 @@ const getLocalBlogList = async () => {
 }
 
 const getZennBlogList = async () => {
-  const feed = await new Parser().parseURL("https://zenn.dev/luke256/feed?all=1");
+  const response = await fetch("https://zenn.dev/luke256/feed?all=1");
+  if (!response.ok) throw new Error(`Failed to fetch Zenn feed: ${response.status}`);
+
+  const feed = await new Parser().parseString(await response.text());
   return feed.items.map((item) => ({
     title: item.title ?? '',
     createdAt: item.pubDate ? new Date(item.pubDate).toISOString().split('T')[0] : '',
@@ -53,8 +56,6 @@ const BlogPage = async () => {
   combinedBlogList.sort((a, b) => {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
-
-  console.log(combinedBlogList);
 
   return (
     <main>
