@@ -1,7 +1,7 @@
 'use client';
 
 import { SolveTenPuzzle } from "./util";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import Section from "@/components/Section";
 import { BlockMath } from "react-katex";
 import 'katex/dist/katex.min.css';
@@ -9,21 +9,12 @@ import 'katex/dist/katex.min.css';
 const TenPuzzleComponent = () => {
     const [valuesString, setValuesString] = useState("");
     const [target, setTarget] = useState(10);
-    const [answer, setAnswer] = useState("");
-    const [showWarning, setShowWarning] = useState(false);
-
-    useEffect(() => {
-        if (valuesString) {
-            const values = valuesString.split(',').map(Number).filter(n => !isNaN(n));
-            setShowWarning(values.length >= 8);
-            if (values.length > 0) {
-                const answer = SolveTenPuzzle(values, target);
-                setAnswer(answer);
-            }
-            else {
-                setAnswer("");
-            }
-        }
+    const { answer, showWarning } = useMemo(() => {
+        const values = valuesString.split(',').map(Number).filter(n => !isNaN(n));
+        return {
+            answer: valuesString && values.length > 0 ? SolveTenPuzzle(values, target) : "",
+            showWarning: values.length >= 8,
+        };
     }, [valuesString, target]);
 
     return (

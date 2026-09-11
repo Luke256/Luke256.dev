@@ -54,8 +54,6 @@ const BlogPage = async () => {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 
-  console.log(combinedBlogList);
-
   return (
     <main>
       <HeadBar />
