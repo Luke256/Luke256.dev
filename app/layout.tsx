@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className='bg-gray-900'>
+      <body className='bg-gray-950'>
         {children}
         <Footer />
         <Analytics />
