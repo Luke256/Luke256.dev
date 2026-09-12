@@ -6,19 +6,19 @@ const GeometricImage = () => {
             <div className={templateClass}>
                 <div className=" bg-red-400/50 size-full"></div>
             </div>
-            <div className={templateClass + " translate-z-[100px]"}>
+            <div className={templateClass + " translate-z-25"}>
                 <div className=" bg-blue-400/50 size-full"></div>
             </div>
-            <div className={templateClass + " rotate-x-90 -translate-y-[50px] translate-z-[50px]"}>
+            <div className={templateClass + " rotate-x-90 -translate-y-12.5 translate-z-12.5"}>
                 <div className=" bg-yellow-400/50 size-full"></div>
             </div>
-            <div className={templateClass + " rotate-x-90 translate-y-[50px] translate-z-[50px]"}>
+            <div className={templateClass + " rotate-x-90 translate-y-12.5 translate-z-12.5"}>
                 <div className=" bg-green-400/50 size-full"></div>
             </div>
-            <div className={templateClass + " rotate-y-90 -translate-x-[50px] translate-z-[50px]"}>
+            <div className={templateClass + " rotate-y-90 -translate-x-12.5 translate-z-12.5"}>
                 <div className=" bg-purple-400/50 size-full"></div>
             </div>
-            <div className={templateClass + " rotate-y-90 translate-x-[50px] translate-z-[50px]"}>
+            <div className={templateClass + " rotate-y-90 translate-x-12.5 translate-z-12.5"}>
                 <div className=" bg-pink-400/50 size-full"></div>
             </div>
         </div>

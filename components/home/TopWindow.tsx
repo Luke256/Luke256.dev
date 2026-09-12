@@ -8,7 +8,7 @@ import FlameSword from "@/images/FlameSword.png";
 
 const TopWindow = () => {
   return (
-    <div className="h-screen bg-linear-to-t from-white/0 to-white/20 bg-0">
+    <div className="h-screen bg-linear-to-t from-indigo/0 to-blue-950/60">
       <TreeSVG className="pointer-events-none bottom-0 left-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto" aspectRatio={2} />
       <TreeSVG className="pointer-events-none bottom-0 right-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto invisible sm:visible" aspectRatio={2} invert />
       <HeadBar />

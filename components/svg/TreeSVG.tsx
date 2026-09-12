@@ -135,14 +135,14 @@ const TreeSVG = ({ className, aspectRatio, invert }: Props) => {
 
     return (
         <svg className={"absolute " + fade + className} viewBox={`0 0 ${Width} ${Height}`} preserveAspectRatio="none">
-            {Vertex.map((v, i) => (
+            {/*{Vertex.map((v, i) => (
                 <circle key={i} cx={v[0]} cy={v[1]} r="0.2" fill={colors[i]} className="opacity-20" />
             ))}
             {Edges.map((e, i) => (
                 <line key={i} x1={Vertex[e[0]][0]} y1={Vertex[e[0]][1]} x2={Vertex[e[1]][0]} y2={Vertex[e[1]][1]} className="opacity-20" strokeWidth="0.1" strokeLinecap="round"
                     stroke={colors[e[0]] != "white" && colors[e[1]] != "white" ? colors[e[0]] : "white"}
                  />
-            ))}
+            ))}*/}
         </svg>
     );
 }

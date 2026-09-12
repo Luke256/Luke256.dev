@@ -19,7 +19,7 @@ const WorksPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {WorksList.map((work: WorksListItem, index: number) => (
                 <Link key={index} href={work.internal ?`/works/${work.slug}`:work.slug} className="h-full">
-                  <div className="p-4 bg-white rounded shadow h-full flex md:flex-col justify-between">
+                  <div className="p-4 bg-white rounded shadow h-full flex-col justify-between">
                     <h2 className="text-xl font-bold text-gray-900">{work.title}</h2>
                     <div className="">
                       <p className="text-gray-600">{work.description}</p>
