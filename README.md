@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luke256.dev
 
-## Getting Started
+https://luke256.dev のソースコード
 
-First, run the development server:
+## ブログを書く
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. `blogs/<slug>.mdx` を作成します。ファイル名がそのまま `/blogs/<slug>` のURLになり、一覧にも自動で追加されます。
+2. ファイルの先頭にメタデータを書き、その下にMDXで本文を書きます。
+3. `bun dev` を実行し、`http://localhost:3000/blogs/<slug>` とブログ一覧を確認します。
+
+記事の冒頭にyaml形式のメタデータを付与することができます。
+
+サンプル:
+```mdx
+---
+createdAt: 2026-09-14
+keywords:
+  - Next.js
+---
+
+# 記事タイトル
+
+# 目次
+
+# はじめに
+
+本文を書きます。
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+メタデータのルールは次のとおりです。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| 項目 | 必須 | 内容 |
+| --- | --- | --- |
+| `createdAt` | 必須 | 投稿日を `YYYY-MM-DD` 形式で指定します。 |
+| `title` | 任意 | 省略時は本文の最初の見出しを使います。先頭を `h1`（`#`）にすると、ページタイトルとして使った見出しは本文から除外されます。 |
+| `updatedAt` | 任意 | 省略時は `createdAt` を使います。記事を更新したときだけ指定します。 |
+| `keywords` | 任意 | 検索用キーワードをYAMLの配列で指定します。 |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+この他、[Next.js の Metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadata-fields) に対応するフィールドを使うことができます。
 
-## Learn More
+`title` を明示した場合、本文の先頭見出しは通常どおり表示されます。
 
-To learn more about Next.js, take a look at the following resources:
+画像は `public/assets/blog/<slug>/` に置き、本文から `/assets/blog/<slug>/<ファイル名>` で参照します。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mdx
+![画像の説明](/assets/blog/example/image.png)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`# 目次` を置くと見出しから目次が生成されます。Tweetを埋め込む場合はIDを指定します。
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```mdx
+<Tweet id="2098320909652340753" />
+```

@@ -6,6 +6,7 @@ import path from "path";
 import { BlogInfo } from "@/components/blogs/BlogPage";
 import Parser from "rss-parser";
 import BlogItem from "@/components/blogs/BlogItem";
+import { getBlogMetadata } from "./[slug]/metadata";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -25,8 +26,9 @@ const getLocalBlogList = async () => {
   const files = LocalBlogNames();
   const blogList = files.map(async (file) => {
     const { metadata } = await import("@/blogs/" + file + ".mdx");
+    const blogMetadata = await getBlogMetadata(path.join(process.cwd(), "blogs", `${file}.mdx`), metadata);
     return {
-      ...metadata,
+      ...blogMetadata,
       slug: file,
       type: "blog" as const,
     };
