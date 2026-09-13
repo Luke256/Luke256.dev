@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     ...metadata,
     description: await getBlogDescription(join(process.cwd(), "/blogs", `${slug}.mdx`)),
-    keywords: [...metadata.keywords, "Luke256"],
-    authors: metadata.authors || [{ name: "Luke256", url: "https://luke256.dev" }],
+    keywords: [...(metadata.keywords ?? []), "Luke256"],
+    authors: metadata.authors ?? [{ name: "Luke256", url: "https://luke256.dev" }],
     publisher: "Luke256",
     formatDetection: {
       email: false,
