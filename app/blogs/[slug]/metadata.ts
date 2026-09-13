@@ -19,6 +19,6 @@ export async function getBlogDescription(path: string): Promise<string> {
 
     if (paragraphs.length === 0) return ""
 
-    const content = paragraphs.slice(0, 10).map(toString).join("\n")
+    const content = paragraphs.slice(0, 10).map(s => toString(s)).join("\n")
     return content.trim()
 }
