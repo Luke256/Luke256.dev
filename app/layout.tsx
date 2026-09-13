@@ -5,11 +5,12 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
-  title: "Luke256's Portfolio",
+  title: {
+    default: "Luke256's Portfolio",
+    template: "%s | Luke256's Portfolio",
+  },
   description: "Luke256's Portfolio",
-  
 }
-
 
 export default function RootLayout({
   children,

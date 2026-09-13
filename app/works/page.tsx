@@ -5,7 +5,7 @@ import { WorksList, WorksListItem } from "./works";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Works | Luke256's Portfolio",
+  title: "Works",
   description: "Luke256's Portfolio",
 }
 

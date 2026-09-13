@@ -13,10 +13,8 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const { metadata: metadata } = await import(`@/blogs/${slug}.mdx`);
-    return {
-        title: `${metadata.title} | Luke256のブログ`,
-    }
+    const { metadata } = await import(`@/blogs/${slug}.mdx`);
+    return metadata
 }
 
 export function generateStaticParams() {
