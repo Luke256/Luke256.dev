@@ -16,9 +16,20 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const { metadata } = await import(`@/blogs/${slug}.mdx`);
-  metadata.description = await getBlogDescription(join(process.cwd(), "/blogs", `${slug}.mdx`));
-  
-  return metadata
+
+  return {
+    ...metadata,
+    description: await getBlogDescription(join(process.cwd(), "/blogs", `${slug}.mdx`)),
+    keywords: [...metadata.keywords, "Luke256"],
+    authors: metadata.authors || [{ name: "Luke256", url: "https://luke256.dev" }],
+    publisher: "Luke256",
+    formatDetection: {
+      email: false,
+      telephone: false,
+      date: false,
+      address: false,
+    }
+  }
 }
 
 export function generateStaticParams() {
