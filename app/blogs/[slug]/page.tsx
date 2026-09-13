@@ -1,26 +1,30 @@
 import BlogContent from "@/components/blogs/BlogPage";
 import { Metadata } from "next";
 import { LocalBlogNames } from "../page";
+import { getBlogDescription } from "./metadata";
+import { join } from "node:path";
 
 export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const { default: Post, metadata: metadata } = await import(`@/blogs/${slug}.mdx`);
+  const { slug } = await params;
+  const { default: Post, metadata: metadata } = await import(`@/blogs/${slug}.mdx`);
 
-    return <BlogContent bloginfo={metadata}>
-      <Post />
-    </BlogContent>
+  return <BlogContent bloginfo={metadata}>
+    <Post />
+  </BlogContent>
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-    const { slug } = await params;
-    const { metadata } = await import(`@/blogs/${slug}.mdx`);
-    return metadata
+  const { slug } = await params;
+  const { metadata } = await import(`@/blogs/${slug}.mdx`);
+  metadata.description = await getBlogDescription(join(process.cwd(), "/blogs", `${slug}.mdx`));
+  
+  return metadata
 }
 
 export function generateStaticParams() {
-    const files = LocalBlogNames();
-    const slugs = files.map((file) => ({ slug: file }));
-    return slugs;
+  const files = LocalBlogNames();
+  const slugs = files.map((file) => ({ slug: file }));
+  return slugs;
 }
 
 export const dynamicParams = false;
