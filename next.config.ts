@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
+      'remark-frontmatter',
+      ['remark-mdx-frontmatter', { name: 'metadata' }],
       'remark-gfm', // GitHub Flavored Markdown
       'remark-math', // MathJax
       ['remark-toc', { heading: '目次', tight: true }], // Table of Contents
