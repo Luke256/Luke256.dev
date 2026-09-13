@@ -1,0 +1,28 @@
+import BlogContent from "@/components/blogs/BlogPage";
+import { Metadata } from "next";
+import { LocalBlogNames } from "../page";
+
+export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const { default: Post, metadata: metadata } = await import(`@/blogs/${slug}.mdx`);
+
+    return <BlogContent bloginfo={metadata}>
+      <Post />
+    </BlogContent>
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const { metadata: metadata } = await import(`@/blogs/${slug}.mdx`);
+    return {
+        title: `${metadata.title} | Luke256のブログ`,
+    }
+}
+
+export function generateStaticParams() {
+    const files = LocalBlogNames();
+    const slugs = files.map((file) => ({ slug: file }));
+    return slugs;
+}
+
+export const dynamicParams = false;

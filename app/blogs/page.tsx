@@ -15,15 +15,21 @@ export const metadata: Metadata = {
 // for Zenn feed caching
 export const revalidate = 3600;
 
+export function LocalBlogNames() {
+  return fs.readdirSync(path.join(process.cwd(), "/blogs"))
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => path.basename(file, ".mdx"));
+}
+
 const getLocalBlogList = async () => {
-  const files = fs.readdirSync(path.join(process.cwd(), "app/blogs"));
+  const files = LocalBlogNames();
   const blogList = files.map(async (file) => {
-    const filePath = path.join(process.cwd(), "/app/blogs", file, "metadata.ts");
-    if (!fs.existsSync(filePath)) return;
-    const bloginfo = (await import("@/app/blogs/" + file + "/metadata")).default;
-    bloginfo.slug = file;
-    bloginfo.type = "blog";
-    return bloginfo;
+    const { metadata } = await import("@/blogs/" + file + ".mdx");
+    return {
+      ...metadata,
+      slug: file,
+      type: "blog" as const,
+    };
   }).filter((blog) => blog !== undefined);
 
   const res = await Promise.all(blogList).then((blogs) => {

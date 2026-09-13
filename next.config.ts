@@ -16,18 +16,18 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
-      'remark-gfm',
-      'remark-math',
-      ['remark-toc', { heading: '目次', tight: true }],
+      'remark-gfm', // GitHub Flavored Markdown
+      'remark-math', // MathJax
+      ['remark-toc', { heading: '目次', tight: true }], // Table of Contents
     ],
     rehypePlugins: [
-      'rehype-katex',
-      'rehype-pretty-code',
-      'rehype-slug',
-      'rehype-autolink-headings',
+      'rehype-katex', // MathJax
+      'rehype-pretty-code', // Syntax highlighting
+      'rehype-slug', // Slug for headings
+      'rehype-autolink-headings', // Autolink headings
     ],
   }
 })
- 
+
 // Merge MDX config with Next.js config
 export default withMDX(nextConfig)

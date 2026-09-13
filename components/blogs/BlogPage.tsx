@@ -2,12 +2,14 @@ import HeadBar from "../HeadBar";
 import UpdatesInfo from "./UpdatesInfo";
 import MdxLayout from "../mdx-layout";
 
+export type BlogType = "blog" | "zenn"
+
 type BlogInfo = {
   slug?: string;
   title: string;
   createdAt: string;
   updatedAt: string;
-  type?: string;
+  type?: BlogType;
 }
 
 type props = {
@@ -15,7 +17,7 @@ type props = {
   children: React.ReactNode;
 }
 
-const BlogPage = ({ bloginfo, children }: props) => {
+const BlogContent = ({ bloginfo, children }: props) => {
   return (
     <main>
       <div>
@@ -37,5 +39,5 @@ const BlogPage = ({ bloginfo, children }: props) => {
   );
 }
 
-export default BlogPage;
+export default BlogContent;
 export type { BlogInfo };

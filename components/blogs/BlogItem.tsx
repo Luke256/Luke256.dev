@@ -40,7 +40,6 @@ const BlogItem = ({ blog }: { blog: BlogInfo }) => {
             </div>
         </Link>
     );
-
 };
 
 export default BlogItem;
