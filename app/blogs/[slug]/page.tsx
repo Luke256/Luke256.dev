@@ -1,5 +1,5 @@
 import BlogContent from "@/components/blogs/BlogPage";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { LocalBlogNames } from "../page";
 import { getBlogDescription } from "./metadata";
 import { join } from "node:path";
@@ -11,6 +11,12 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
   return <BlogContent bloginfo={metadata}>
     <Post />
   </BlogContent>
+}
+
+export const viewport: Viewport = {
+  themeColor: "#4e8de6",
+  width: "device-width",
+  initialScale: 1,
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -28,7 +34,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       telephone: false,
       date: false,
       address: false,
-    }
+    },
+    referrer: "origin",
+    metadataBase: new URL("https://luke256.dev"),
+    alternates: {
+      canonical: `/blogs/${slug}`,
+    },
   }
 }
 
