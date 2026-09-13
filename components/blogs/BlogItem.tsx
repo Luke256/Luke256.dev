@@ -32,7 +32,7 @@ const BlogItem = ({ blog }: { blog: BlogInfo }) => {
 
     return (
         <Link href={href} className="h-full">
-            <div className="p-4 bg-white rounded flex-col h-full justify-between">
+            <div className="p-4 bg-white rounded flex flex-col h-full justify-between">
                 <div className="text-xl font-bold text-gray-900 line-clamp-2">
                     {blog.title}
                 </div>

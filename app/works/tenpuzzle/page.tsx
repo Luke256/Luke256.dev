@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import TenPuzzleComponent from "./tenPuzzle";
 
 export const metadata: Metadata = {
-  title: "TenPuzzle | Works | Luke256's Portfolio",
+  title: "TenPuzzle",
   description: "テンパズルのソルバー",
 }
 
