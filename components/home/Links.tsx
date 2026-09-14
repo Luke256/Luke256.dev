@@ -37,7 +37,7 @@ const Links = () => {
                 </Link>
                 <Link href="https://atcoder.jp/users/yuta28" className="" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#23181540] hover:bg-[#23181560] transition duration-300">
-                        <Image src={AtCoderWhiteImg} alt="AtCoder" className="h-[36px] w-auto"/>
+                        <Image src={AtCoderWhiteImg} alt="AtCoder" width={43} height={36} className="h-9 w-auto"/>
                         <div className="ml-4 content-center">
                             <span>AtCoder yuta28</span>
                         </div>
@@ -45,7 +45,7 @@ const Links = () => {
                 </Link>
                 <Link href="https://qiita.com/Luke02561" className="" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#55c50040] hover:bg-[#55c50060] transition duration-300">
-                        <Image src={QiitaIcon} alt="Qiita" className="h-[36px] w-auto" />
+                        <Image src={QiitaIcon} alt="Qiita" width={36} height={36} className="h-9 w-auto" />
                         <div className="ml-4 content-center">
                             <span>Qiita @Luke02561</span>
                         </div>
@@ -53,7 +53,7 @@ const Links = () => {
                 </Link>
                 <Link href="https://www.resume.id/luke256" className="" target="_blank" rel="noopener noreferrer">
                     <div className="sm:px-8 p-4 flex justify-between rounded-lg bg-[#329eff40] hover:bg-[#329eff60] transition duration-300">
-                        <Image src={ResumeIcon} alt="Resume" className="h-[36px] w-auto" />
+                        <Image src={ResumeIcon} alt="Resume" width={36} height={36} className="h-9 w-auto" />
                         <div className="ml-4 content-center">
                             <span>RESUME luke256</span>
                         </div>
