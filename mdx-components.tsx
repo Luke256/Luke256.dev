@@ -1,15 +1,15 @@
 import type { MDXComponents } from 'mdx/types'
-import { Tweet as ReactTweet, type TweetProps } from 'react-tweet'
+import Tweet from '@/components/blogs/Tweet'
 
-const Tweet = (props: TweetProps) => (
+const TweetComponent = ({ id }: { id: string }) => (
   <div className="not-prose">
-    <ReactTweet {...props} />
+    <Tweet id={id} />
   </div>
 )
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    Tweet,
+    Tweet: TweetComponent,
     ...components,
   }
 }
