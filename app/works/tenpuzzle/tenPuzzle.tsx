@@ -18,7 +18,7 @@ const TenPuzzleComponent = () => {
     }, [valuesString, target]);
 
     return (
-        <Section title="テンパズルソルバー" sideTree={false}>
+        <Section title="テンパズルソルバー">
             <label className="text-2xl font-bold mb-4">使用する数字(,区切り)</label>
             <input type="text" placeholder="1,2,3,4" value={valuesString} onChange={(e) => setValuesString(e.target.value)} className="w-full p-2 bg-gray-800 text-white rounded mb-4" />
             {showWarning && (
