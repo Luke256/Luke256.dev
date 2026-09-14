@@ -3,14 +3,11 @@ import HeadBar from "../HeadBar"
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
 import Link from "next/link";
-import TreeSVG from "../svg/TreeSVG";
 import FlameSword from "@/images/FlameSword.png";
 
 const TopWindow = () => {
   return (
     <div className="h-screen bg-linear-to-t from-indigo/0 to-blue-950/60">
-      <TreeSVG className="pointer-events-none bottom-0 left-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto" aspectRatio={2} />
-      <TreeSVG className="pointer-events-none bottom-0 right-0 sm:h-[calc(100%-var(--header-height))] w-full sm:w-auto invisible sm:visible" aspectRatio={2} invert />
       <HeadBar />
       <div className="max-w-3xl m-auto h-[calc(100%-var(--header-height))]">
         <div className="flex flex-col-reverse sm:flex-row items-center place-content-center sm:justify-around h-full lg:px-4 md:px-1">
