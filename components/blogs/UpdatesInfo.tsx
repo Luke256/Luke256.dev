@@ -6,7 +6,7 @@ type Props = {
 
 const UpdatesInfo = ({ createdAt, updatedAt }: Props) => {
     return (
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-sm text-gray-800">
             <div className="flex gap-2">
                 <span>作成日: {createdAt}</span>
                 {createdAt != updatedAt && <span>最終更新日: {updatedAt}</span>}
