@@ -5,12 +5,7 @@ import remarkMdx from "remark-mdx";
 import remarkFrontmatter from "remark-frontmatter";
 import type { Root } from "mdast";
 import { toString } from "mdast-util-to-string";
-
-type BlogMetadata = {
-    title?: string;
-    createdAt: string;
-    updatedAt?: string;
-}
+import { join } from "node:path";
 
 function parseBlog(source: string | Uint8Array): Root {
     return unified()
@@ -25,16 +20,19 @@ export function getFirstHeading(source: string | Uint8Array): string {
     return heading ? toString(heading).trim() : ""
 }
 
-export async function getBlogMetadata<T extends BlogMetadata>(path: string, metadata: T) {
+export async function getBlogMetadata(slug: string) {
+    const { metadata } = await import(`@/blogs/${slug}.mdx`);
+    const blogPath = join(process.cwd(), "blogs", `${slug}.mdx`);
     return {
         ...metadata,
-        title: metadata.title ?? getFirstHeading(await readFile(path)),
+        title: metadata.title ?? getFirstHeading(await readFile(blogPath)),
         updatedAt: metadata.updatedAt ?? metadata.createdAt,
     }
 }
 
-export async function getBlogDescription(path: string): Promise<string> {
-    const source = await readFile(path)
+export async function getBlogDescription(slug: string): Promise<string> {
+    const blogPath = join(process.cwd(), "blogs", `${slug}.mdx`);
+    const source = await readFile(blogPath)
     const tree = parseBlog(source)
 
     const paragraphs = tree.children.filter(
