@@ -23,7 +23,7 @@ export async function LinkCard({ href }: Props) {
       href={ogInfo.url}
       target='_blank'
       rel='noopener noreferrer'
-      className='not-prose my-6 flex flex-col md:flex-row overflow-hidden rounded border border-slate-200 bg-white text-slate-900 no-underline transition-colors hover:border-indigo-400 hover:bg-indigo-50/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500'
+      className='not-prose my-6 flex flex-col md:flex-row overflow-hidden rounded border border-slate-200 bg-slate-50 text-slate-900 no-underline transition-colors hover:border-indigo-400 hover:bg-indigo-50/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500'
     >
       
       {ogInfo.image &&
@@ -31,8 +31,10 @@ export async function LinkCard({ href }: Props) {
         <img
           src={ogInfo.image}
           alt={ogInfo.title}
+          width={ogInfo.imageWidth}
+          height={ogInfo.imageHeight}
           loading='lazy'
-          className='h-40 w-full md:w-auto object-contain'
+          className={`h-40 w-full md:w-auto object-contain`}
         />
       }
       <div className='flex flex-col min-w-0 flex-1 gap-1.5 p-4'>
@@ -45,7 +47,7 @@ export async function LinkCard({ href }: Props) {
         <div className='line-clamp-2 text-xs leading-relaxed text-slate-600 sm:text:sm'>
           {ogInfo.description}
         </div>
-        <div className='mt-auto truncate pt-2 text-xs text-slate-400'>
+        <div className='mt-auto truncate text-xs text-slate-400'>
           {ogInfo.url}
         </div>
       </div>

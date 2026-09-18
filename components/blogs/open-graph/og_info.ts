@@ -6,6 +6,8 @@ export type OgInfo = {
   title: string
   description?: string
   image?: string
+  imageWidth?: number
+  imageHeight?: number
   siteName?: string
 }
 
@@ -44,6 +46,11 @@ export async function getOgInfo(url: string): Promise<OgInfo> {
         undefined
 
     const image = imageRaw ? new URL(imageRaw, target).toString() : undefined
+    const imageWidth = Number($('meta[property="og:image:width"]').attr('content'))
+    const imageHeight = Number($('meta[property="og:image:height"]').attr('content'))
+    const hasImageSize =
+        Number.isFinite(imageWidth) && imageWidth > 0 &&
+        Number.isFinite(imageHeight) && imageHeight > 0
 
     const siteName =
         $('meta[property="og:site_name"]').attr('content') ||
@@ -55,6 +62,8 @@ export async function getOgInfo(url: string): Promise<OgInfo> {
         title,
         description,
         image,
+        imageWidth: hasImageSize ? imageWidth : undefined,
+        imageHeight: hasImageSize ? imageHeight : undefined,
         siteName,
     }
 }
