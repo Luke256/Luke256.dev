@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
+import { resolve } from "node:path";
+
+const remarkLinkCard = resolve(process.cwd(), 'components/blogs/open-graph/remark.mjs')
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
@@ -16,6 +19,7 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
+      remarkLinkCard,
       'remark-frontmatter',
       ['remark-mdx-frontmatter', { name: 'metadata' }],
       'remark-gfm', // GitHub Flavored Markdown
