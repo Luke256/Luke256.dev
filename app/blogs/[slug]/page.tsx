@@ -2,7 +2,6 @@ import BlogContent from "@/components/blogs/BlogPage";
 import { Metadata, Viewport } from "next";
 import { LocalBlogNames } from "../page";
 import { getBlogDescription, getBlogMetadata } from "./metadata";
-import { join } from "node:path";
 import type { HTMLAttributes } from "react";
 import type { MDXComponents } from "mdx/types";
 
@@ -23,11 +22,11 @@ function createBlogComponentsWithoutFirstH1(): MDXComponents {
 
 export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const { default: Post, metadata } = await import(`@/blogs/${slug}.mdx`);
-  const bloginfo = await getBlogMetadata(join(process.cwd(), "blogs", `${slug}.mdx`), metadata);
+  const { default: Post } = await import(`@/blogs/${slug}.mdx`);
+  const bloginfo = await getBlogMetadata(slug);
 
   return <BlogContent bloginfo={bloginfo}>
-    <Post components={metadata.title == null ? createBlogComponentsWithoutFirstH1() : undefined} />
+    <Post components={bloginfo.title == null ? createBlogComponentsWithoutFirstH1() : undefined} />
   </BlogContent>
 }
 
@@ -39,13 +38,15 @@ export const viewport: Viewport = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const { metadata } = await import(`@/blogs/${slug}.mdx`);
-  const blogPath = join(process.cwd(), "blogs", `${slug}.mdx`);
-  const blogMetadata = await getBlogMetadata(blogPath, metadata);
+  const blogMetadata = await getBlogMetadata(slug);
 
   return {
     ...blogMetadata,
-    description: await getBlogDescription(blogPath),
+    ...(blogMetadata.hero ? {
+      openGraph: { ...blogMetadata.openGraph, images: [blogMetadata.hero] },
+      twitter: { ...blogMetadata.twitter, card: 'summary_large_image', images: [blogMetadata.hero] },
+    } : {}),
+    description: await getBlogDescription(slug),
     keywords: [...(blogMetadata.keywords ?? []), "Luke256"],
     authors: blogMetadata.authors ?? [{ name: "Luke256", url: "https://luke256.dev" }],
     publisher: "Luke256",
