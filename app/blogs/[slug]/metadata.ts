@@ -43,6 +43,15 @@ export async function getBlogDescription(path: string): Promise<string> {
 
     if (paragraphs.length === 0) return ""
 
-    const content = paragraphs.slice(0, 10).map(s => toString(s)).join("\n")
-    return content.trim()
+    const maxLength = 100
+    let length = 0
+    // maxLength を超えるまで採用
+    const contents = paragraphs.slice(0, 10).map(s => toString(s))
+    for (let i = 0; i < contents.length; i++) {
+        length += contents[i].length
+        if (length > maxLength) {
+            return contents.slice(0, i+1).join("\n").trim()
+        }
+    }
+    return contents.join("\n").trim()
 }
