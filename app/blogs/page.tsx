@@ -25,8 +25,7 @@ export function LocalBlogNames() {
 const getLocalBlogList = async () => {
   const files = LocalBlogNames();
   const blogList = files.map(async (file) => {
-    const { metadata } = await import("@/blogs/" + file + ".mdx");
-    const blogMetadata = await getBlogMetadata(path.join(process.cwd(), "blogs", `${file}.mdx`), metadata);
+    const blogMetadata = await getBlogMetadata(file);
     return {
       ...blogMetadata,
       slug: file,

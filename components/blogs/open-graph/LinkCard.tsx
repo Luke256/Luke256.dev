@@ -34,7 +34,7 @@ export async function LinkCard({ href }: Props) {
           width={ogInfo.imageWidth}
           height={ogInfo.imageHeight}
           loading='lazy'
-          className={`h-40 w-full md:w-auto object-contain`}
+          className='h-40 w-full shrink-0 object-contain md:w-auto md:max-w-[40%]'
         />
       }
       <div className='flex flex-col min-w-0 flex-1 gap-1.5 p-4'>
@@ -44,7 +44,7 @@ export async function LinkCard({ href }: Props) {
         <div className='line-clamp-1 text-sm font-semibold leading-snug sm:text-base'>
           {ogInfo.title}
         </div>
-        <div className='line-clamp-2 text-xs leading-relaxed text-slate-600 sm:text:sm'>
+        <div className='line-clamp-2 text-xs leading-relaxed text-slate-600 sm:text-sm'>
           {ogInfo.description}
         </div>
         <div className='mt-auto truncate text-xs text-slate-400'>

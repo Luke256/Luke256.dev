@@ -42,6 +42,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     ...blogMetadata,
+    ...(blogMetadata.hero ? {
+      openGraph: { ...blogMetadata.openGraph, images: [blogMetadata.hero] },
+      twitter: { ...blogMetadata.twitter, card: 'summary_large_image', images: [blogMetadata.hero] },
+    } : {}),
     description: await getBlogDescription(slug),
     keywords: [...(blogMetadata.keywords ?? []), "Luke256"],
     authors: blogMetadata.authors ?? [{ name: "Luke256", url: "https://luke256.dev" }],
