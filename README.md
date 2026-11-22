@@ -51,3 +51,10 @@ keywords:
 ```mdx
 <Tweet id="2098320909652340753" />
 ```
+
+## Siv3D Web ビルドの配信
+
+Tolunede と Q-Rush は Siv3D プロジェクトの Web ビルドです。ビルド成果物は `public/works/<slug>/` に置き、Next.js の `rewrites` で各公開 URL に HTML を配信します。
+
+`rewrites` ではブラウザの URL が変わらないため、HTML を再出力したら `<head>` に対応する `<base>` を追加してください。`.js`、`.data`、`.wasm` の相対パスが各作品のディレクトリを指すようになります。
+
