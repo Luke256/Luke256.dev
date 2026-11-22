@@ -26,7 +26,7 @@ export const WorksList = [
     },
     {
         title: "Q-Rush",
-        description: "とあるゲームジャムで6時間くらいで作ったミニゲームです (音はありません)",
+        description: "とあるゲームジャムで6時間くらいで作ったミニゲームです",
         slug: "q-rush",
         internal: true
     },
@@ -38,7 +38,7 @@ export const WorksList = [
     },
     {
         title: "Tolunede",
-        description: "",
+        description: "赤色のとげを避けながらノードをつなげていくミニゲームです。",
         slug: "tolunede",
         internal: true
     }
